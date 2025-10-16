@@ -1,0 +1,44 @@
+dependencies:
+  espressif/esp-modbus:
+    dependencies:
+    - name: idf
+      version: '>=5.0'
+    source:
+      path: C:\Tesis Maqui\esp-modbus
+      type: local
+    version: 2.1.1
+  espressif/mdns:
+    component_hash: 3ec0af5f6bce310512e90f482388d21cc7c0e99668172d2f895356165fc6f7c5
+    dependencies:
+    - name: idf
+      require: private
+      version: '>=5.0'
+    source:
+      registry_url: https://components.espressif.com/
+      type: service
+    version: 1.8.2
+  idf:
+    source:
+      type: idf
+    version: 5.3.1
+  mb_example_common:
+    dependencies: []
+    source:
+      path: C:\Tesis Maqui\esp-modbus\Codigo\mb_example_common
+      type: local
+    version: '*'
+  protocol_examples_common:
+    dependencies: []
+    source:
+      path: C:\Espressif\frameworks\esp-idf-v5.3.1\examples\common_components\protocol_examples_common
+      type: local
+    version: '*'
+direct_dependencies:
+- espressif/esp-modbus
+- espressif/mdns
+- idf
+- mb_example_common
+- protocol_examples_common
+manifest_hash: 46f0e2f4497822cb1e2a04dac66a491dbfb09b693233ce8c1b5e2ee459f1afe1
+target: esp32
+version: 2.0.0
