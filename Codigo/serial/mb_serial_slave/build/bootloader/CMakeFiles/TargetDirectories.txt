@@ -4,8 +4,6 @@ C:/Tesis Maqui/esp-modbus/Codigo/serial/mb_serial_slave/build/bootloader/CMakeFi
 C:/Tesis Maqui/esp-modbus/Codigo/serial/mb_serial_slave/build/bootloader/CMakeFiles/gen_project_binary.dir
 C:/Tesis Maqui/esp-modbus/Codigo/serial/mb_serial_slave/build/bootloader/CMakeFiles/app.dir
 C:/Tesis Maqui/esp-modbus/Codigo/serial/mb_serial_slave/build/bootloader/CMakeFiles/erase_flash.dir
-C:/Tesis Maqui/esp-modbus/Codigo/serial/mb_serial_slave/build/bootloader/CMakeFiles/uf2.dir
-C:/Tesis Maqui/esp-modbus/Codigo/serial/mb_serial_slave/build/bootloader/CMakeFiles/uf2-app.dir
 C:/Tesis Maqui/esp-modbus/Codigo/serial/mb_serial_slave/build/bootloader/CMakeFiles/merge-bin.dir
 C:/Tesis Maqui/esp-modbus/Codigo/serial/mb_serial_slave/build/bootloader/CMakeFiles/monitor.dir
 C:/Tesis Maqui/esp-modbus/Codigo/serial/mb_serial_slave/build/bootloader/CMakeFiles/_project_elf_src.dir
@@ -13,6 +11,8 @@ C:/Tesis Maqui/esp-modbus/Codigo/serial/mb_serial_slave/build/bootloader/CMakeFi
 C:/Tesis Maqui/esp-modbus/Codigo/serial/mb_serial_slave/build/bootloader/CMakeFiles/size.dir
 C:/Tesis Maqui/esp-modbus/Codigo/serial/mb_serial_slave/build/bootloader/CMakeFiles/size-files.dir
 C:/Tesis Maqui/esp-modbus/Codigo/serial/mb_serial_slave/build/bootloader/CMakeFiles/size-components.dir
+C:/Tesis Maqui/esp-modbus/Codigo/serial/mb_serial_slave/build/bootloader/CMakeFiles/uf2.dir
+C:/Tesis Maqui/esp-modbus/Codigo/serial/mb_serial_slave/build/bootloader/CMakeFiles/uf2-app.dir
 C:/Tesis Maqui/esp-modbus/Codigo/serial/mb_serial_slave/build/bootloader/CMakeFiles/edit_cache.dir
 C:/Tesis Maqui/esp-modbus/Codigo/serial/mb_serial_slave/build/bootloader/CMakeFiles/rebuild_cache.dir
 C:/Tesis Maqui/esp-modbus/Codigo/serial/mb_serial_slave/build/bootloader/esp-idf/CMakeFiles/edit_cache.dir
@@ -52,6 +52,8 @@ C:/Tesis Maqui/esp-modbus/Codigo/serial/mb_serial_slave/build/bootloader/esp-idf
 C:/Tesis Maqui/esp-modbus/Codigo/serial/mb_serial_slave/build/bootloader/esp-idf/efuse/CMakeFiles/efuse_test_table.dir
 C:/Tesis Maqui/esp-modbus/Codigo/serial/mb_serial_slave/build/bootloader/esp-idf/efuse/CMakeFiles/edit_cache.dir
 C:/Tesis Maqui/esp-modbus/Codigo/serial/mb_serial_slave/build/bootloader/esp-idf/efuse/CMakeFiles/rebuild_cache.dir
+C:/Tesis Maqui/esp-modbus/Codigo/serial/mb_serial_slave/build/bootloader/esp-idf/esp_security/CMakeFiles/edit_cache.dir
+C:/Tesis Maqui/esp-modbus/Codigo/serial/mb_serial_slave/build/bootloader/esp-idf/esp_security/CMakeFiles/rebuild_cache.dir
 C:/Tesis Maqui/esp-modbus/Codigo/serial/mb_serial_slave/build/bootloader/esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir
 C:/Tesis Maqui/esp-modbus/Codigo/serial/mb_serial_slave/build/bootloader/esp-idf/esp_system/CMakeFiles/edit_cache.dir
 C:/Tesis Maqui/esp-modbus/Codigo/serial/mb_serial_slave/build/bootloader/esp-idf/esp_system/CMakeFiles/rebuild_cache.dir

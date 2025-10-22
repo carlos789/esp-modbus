@@ -1,0 +1,2 @@
+source C:/Tesis Maqui/esp-modbus/Codigo/serial/mb_serial_slave/build/gdbinit/symbols
+source C:/Tesis Maqui/esp-modbus/Codigo/serial/mb_serial_slave/build/gdbinit/connect
