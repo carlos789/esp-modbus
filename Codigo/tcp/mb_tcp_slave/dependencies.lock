@@ -1,4 +1,51 @@
 dependencies:
+  esp-idf-lib/esp_idf_lib_helpers:
+    component_hash: a8049b1e609679fb54b2d57b0399dd29c4d1fda09a797edac9926f7810aa5703
+    dependencies: []
+    source:
+      registry_url: https://components.espressif.com/
+      type: service
+    targets:
+    - esp32
+    - esp32c2
+    - esp32c3
+    - esp32c5
+    - esp32c6
+    - esp32c61
+    - esp32h2
+    - esp32p4
+    - esp32s2
+    - esp32s3
+    version: 1.3.10
+  esp-idf-lib/max31865:
+    component_hash: d49498742114cc48fbb4526423d0a3cef205f7faf7492f0bb5a289f9f9cb8e20
+    dependencies: []
+    source:
+      registry_url: https://components.espressif.com/
+      type: service
+    targets:
+    - esp32
+    - esp32c2
+    - esp32c3
+    - esp32c5
+    - esp32c6
+    - esp32c61
+    - esp32h2
+    - esp32p4
+    - esp32s2
+    - esp32s3
+    version: 1.0.7
+  espressif/ds18b20:
+    component_hash: 9792f38a20eb2fe7435cba349e3b4b7085381f05400233aacd849ced69e2207f
+    dependencies:
+    - name: espressif/onewire_bus
+      registry_url: https://components.espressif.com
+      require: private
+      version: ^1.0.0
+    source:
+      registry_url: https://components.espressif.com/
+      type: service
+    version: 0.2.0
   espressif/esp-modbus:
     dependencies:
     - name: idf
@@ -17,10 +64,20 @@ dependencies:
       registry_url: https://components.espressif.com/
       type: service
     version: 1.8.2
+  espressif/onewire_bus:
+    component_hash: 11729fd9a5de80225177a61e9cd77de91683b8ec300e83710d5327b666dbe884
+    dependencies:
+    - name: idf
+      require: private
+      version: '>=5.0'
+    source:
+      registry_url: https://components.espressif.com
+      type: service
+    version: 1.0.4
   idf:
     source:
       type: idf
-    version: 5.3.1
+    version: 5.5.1
   mb_example_common:
     dependencies: []
     source:
@@ -30,15 +87,18 @@ dependencies:
   protocol_examples_common:
     dependencies: []
     source:
-      path: C:\Espressif\frameworks\esp-idf-v5.3.1\examples\common_components\protocol_examples_common
+      path: C:\Users\carlo_p59mbo7\esp\v5.5.1\esp-idf\examples\common_components\protocol_examples_common
       type: local
     version: '*'
 direct_dependencies:
+- esp-idf-lib/esp_idf_lib_helpers
+- esp-idf-lib/max31865
+- espressif/ds18b20
 - espressif/esp-modbus
 - espressif/mdns
 - idf
 - mb_example_common
 - protocol_examples_common
-manifest_hash: 46f0e2f4497822cb1e2a04dac66a491dbfb09b693233ce8c1b5e2ee459f1afe1
+manifest_hash: 2929f0fa0c537f72be2182280f7e405ed8b1d9fde6b5ef57e8e785dccf99a6af
 target: esp32
 version: 2.0.0

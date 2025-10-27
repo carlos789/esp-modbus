@@ -157,8 +157,14 @@ C:/Tesis Maqui/esp-modbus/Codigo/serial/mb_serial_slave/build/esp-idf/rt/librt.a
 C:/Tesis Maqui/esp-modbus/Codigo/serial/mb_serial_slave/build/esp-idf/spiffs/libspiffs.a
 C:/Tesis Maqui/esp-modbus/Codigo/serial/mb_serial_slave/build/esp-idf/wifi_provisioning/libwifi_provisioning.a
 C:/Tesis Maqui/esp-modbus/Codigo/serial/mb_serial_slave/build/esp-idf/json/libjson.a
+C:/Tesis Maqui/esp-modbus/Codigo/serial/mb_serial_slave/build/esp-idf/esp-idf-lib__max31865/libesp-idf-lib__max31865.a
+C:/Tesis Maqui/esp-modbus/Codigo/serial/mb_serial_slave/build/esp-idf/espressif__onewire_bus/libespressif__onewire_bus.a
+C:/Tesis Maqui/esp-modbus/Codigo/serial/mb_serial_slave/build/esp-idf/espressif__ds18b20/libespressif__ds18b20.a
+C:/Tesis Maqui/esp-modbus/Codigo/serial/mb_serial_slave/build/esp-idf/espressif__onewire_bus/libespressif__onewire_bus.a
 C:/Tesis Maqui/esp-modbus/Codigo/serial/mb_serial_slave/build/esp-idf/esp-modbus/libesp-modbus.a
 C:/Tesis Maqui/esp-modbus/Codigo/serial/mb_serial_slave/build/esp-idf/mb_example_common/libmb_example_common.a
 C:/Tesis Maqui/esp-modbus/Codigo/serial/mb_serial_slave/build/esp-idf/main/libmain.a
+C:/Tesis Maqui/esp-modbus/Codigo/serial/mb_serial_slave/build/esp-idf/esp-idf-lib__max31865/libesp-idf-lib__max31865.a
+C:/Tesis Maqui/esp-modbus/Codigo/serial/mb_serial_slave/build/esp-idf/espressif__ds18b20/libespressif__ds18b20.a
 C:/Tesis Maqui/esp-modbus/Codigo/serial/mb_serial_slave/build/esp-idf/esp-modbus/libesp-modbus.a
 C:/Tesis Maqui/esp-modbus/Codigo/serial/mb_serial_slave/build/esp-idf/mb_example_common/libmb_example_common.a

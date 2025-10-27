@@ -1,0 +1,28 @@
+dependencies: {}
+description: Driver for MAX31865 resistance converter for platinum RTDs
+discussion: https://github.com/esp-idf-lib/core/discussions
+documentation: https://esp-idf-lib.github.io/max31865/
+files:
+  exclude:
+  - docs/**/*
+issues: https://github.com/esp-idf-lib/max31865/issues
+license: BSD-3
+maintainers:
+- Ruslan V. Uss (@UncleRus) <unclerus@gmail.com>
+repository: git://github.com/esp-idf-lib/max31865.git
+repository_info:
+  commit_sha: 268b714b0325bb42c112c58fff92cde58c9a7708
+  path: .
+targets:
+- esp32
+- esp32c2
+- esp32c3
+- esp32c5
+- esp32c6
+- esp32c61
+- esp32h2
+- esp32p4
+- esp32s2
+- esp32s3
+url: https://github.com/esp-idf-lib/core
+version: 1.0.7

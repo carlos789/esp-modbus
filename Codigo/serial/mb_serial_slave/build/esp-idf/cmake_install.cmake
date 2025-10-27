@@ -559,6 +559,26 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
+  include("C:/Tesis Maqui/esp-modbus/Codigo/serial/mb_serial_slave/build/esp-idf/esp-idf-lib__esp_idf_lib_helpers/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("C:/Tesis Maqui/esp-modbus/Codigo/serial/mb_serial_slave/build/esp-idf/esp-idf-lib__max31865/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("C:/Tesis Maqui/esp-modbus/Codigo/serial/mb_serial_slave/build/esp-idf/espressif__onewire_bus/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("C:/Tesis Maqui/esp-modbus/Codigo/serial/mb_serial_slave/build/esp-idf/espressif__ds18b20/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
   include("C:/Tesis Maqui/esp-modbus/Codigo/serial/mb_serial_slave/build/esp-idf/esp-modbus/cmake_install.cmake")
 endif()
 

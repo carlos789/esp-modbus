@@ -1,7 +1,10 @@
 dependencies:
-  idf: ">=5.0"
+  espressif/ds18b20: '*'
+  idf: '>=5.0'
   espressif/esp-modbus:
-    version: "^2"
-    override_path: "../../../../"
+    version: ^2
+    override_path: ../../../../
   mb_example_common:
-    path: "../../../mb_example_common"
+    path: ../../../mb_example_common
+  esp-idf-lib/max31865: '*'
+  esp-idf-lib/esp_idf_lib_helpers: '*'

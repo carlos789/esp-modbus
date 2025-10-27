@@ -11,7 +11,61 @@
 #include "modbus_params.h"      // for modbus parameters structures
 #include "esp_log.h"            // for log_write
 #include "sdkconfig.h"
+#include "esp_system.h"
+#include <math.h> // para usar rounf
 
+/**************Max31865***************** */
+#include <max31865.h>
+#include "esp_idf_lib_helpers.h"
+
+#define HOST HELPER_SPI_HOST_DEFAULT
+
+#if CONFIG_EXAMPLE_FILTER_50
+#define FILTER MAX31865_FILTER_50HZ
+#endif
+#if CONFIG_EXAMPLE_FILTER_60
+#define FILTER MAX31865_FILTER_60HZ
+#endif
+#if CONFIG_EXAMPLE_SCALE_ITS90
+#define RTD_STANDARD MAX31865_ITS90
+#endif
+#if CONFIG_EXAMPLE_SCALE_DIN43760
+#define RTD_STANDARD MAX31865_DIN43760
+#endif
+#if CONFIG_EXAMPLE_SCALE_US
+#define RTD_STANDARD MAX31865_US_INDUSTRIAL
+#endif
+
+#if CONFIG_EXAMPLE_CONN_2WIRE
+#define RTD_CONNECTION MAX31865_2WIRE
+#endif
+#if CONFIG_EXAMPLE_CONN_3WIRE
+#define RTD_CONNECTION MAX31865_3WIRE
+#endif
+#if CONFIG_EXAMPLE_CONN_4WIRE
+#define RTD_CONNECTION MAX31865_4WIRE
+#endif
+/**************************************** */
+//#include "ThingsBoard.h"
+#include "string.h"
+#define GPIO_COIL_0 GPIO_NUM_2 // Ejemplo: usar el GPIO 2
+
+// ************DS18B20*********** */
+#include "ds18b20.h"  //Header sensor temperatura 
+#include "onewire_bus.h"
+#include "driver/gpio.h"
+// Temp Sensors are on GPIO26
+#define EXAMPLE_ONEWIRE_BUS_GPIO    26
+#define EXAMPLE_ONEWIRE_MAX_DS18B20 2  
+#define LED 2
+#define HIGH 1
+#define digitalWrite gpio_set_level
+static int s_ds18b20_device_num = 0;
+static float s_temperature = 0.0;
+static ds18b20_device_handle_t s_ds18b20s[EXAMPLE_ONEWIRE_MAX_DS18B20];
+static int H_temperature = 0;
+int16_t TMax =0 ;// Regidtro para Modbus del Max31865
+/********************************* */
 #define MB_PORT_NUM     (CONFIG_MB_UART_PORT_NUM)   // Number of UART port used for Modbus connection
 #define MB_SLAVE_ADDR   (CONFIG_MB_SLAVE_ADDR)      // The address of device in Modbus network
 #define MB_DEV_SPEED    (CONFIG_MB_UART_BAUD_RATE)  // The communication speed of the UART
@@ -131,7 +185,7 @@ static void setup_reg_data(void)
     mb_set_double_badcfehg((val_64_arr *)&holding_reg_params.holding_double_badcfehg[1], (double)MB_TEST_VALUE);
 #endif
 
-    coil_reg_params.coils_port0 = 0x55;
+    coil_reg_params.coils_port0 = 0x00;
     coil_reg_params.coils_port1 = 0xAA;
 
     input_reg_params.input_data0 = 1.12F;
@@ -162,7 +216,92 @@ mb_exception_t my_custom_fc_handler(void *inst, uint8_t *frame_ptr, uint16_t *le
     *len = (strlen(str_append) + *len); // the length of (response + command)
     return MB_EX_NONE; // Set the exception code for modbus object appropriately
 }
+//*******************Funciones DS18B20********************* */
+static void sensor_detect(void)
+{
+    // install 1-wire bus
+    onewire_bus_handle_t bus = NULL;
+    onewire_bus_config_t bus_config = {
+        .bus_gpio_num = EXAMPLE_ONEWIRE_BUS_GPIO,
+    };
+    onewire_bus_rmt_config_t rmt_config = {
+        .max_rx_bytes = 10, // 1byte ROM command + 8byte ROM number + 1byte device command
+    };
+    ESP_ERROR_CHECK(onewire_new_bus_rmt(&bus_config, &rmt_config, &bus));
 
+    onewire_device_iter_handle_t iter = NULL;
+    onewire_device_t next_onewire_device;
+    esp_err_t search_result = ESP_OK;
+
+    // create 1-wire device iterator, which is used for device search
+    ESP_ERROR_CHECK(onewire_new_device_iter(bus, &iter));
+    ESP_LOGI(TAG, "Device iterator created, start searching...");
+    do {
+        search_result = onewire_device_iter_get_next(iter, &next_onewire_device);
+        if (search_result == ESP_OK) { // found a new device, let's check if we can upgrade it to a DS18B20
+            ds18b20_config_t ds_cfg = {};
+            // check if the device is a DS18B20, if so, return the ds18b20 handle
+            if (ds18b20_new_device_from_enumeration(&next_onewire_device, &ds_cfg, &s_ds18b20s[s_ds18b20_device_num]) == ESP_OK) {
+                ESP_LOGI(TAG, "Found a DS18B20[%d], address: %016llX", s_ds18b20_device_num, next_onewire_device.address);
+                s_ds18b20_device_num++;
+            } else {
+                ESP_LOGI(TAG, "Found an unknown device, address: %016llX", next_onewire_device.address);
+            }
+        }
+    } while (search_result != ESP_ERR_NOT_FOUND);
+    ESP_ERROR_CHECK(onewire_del_device_iter(iter));
+    ESP_LOGI(TAG, "Searching done, %d DS18B20 device(s) found", s_ds18b20_device_num);
+}
+
+void sensor_read(void)
+{
+    for (int i = 0; i < s_ds18b20_device_num; i ++) {
+        ESP_ERROR_CHECK(ds18b20_trigger_temperature_conversion(s_ds18b20s[i]));
+        ESP_ERROR_CHECK(ds18b20_get_temperature(s_ds18b20s[i], &s_temperature, &H_temperature));
+        //ESP_LOGI(TAG, "temperature read from DS18B20[%d]: %.2fC", i, s_temperature);
+        //printf("Temperatura Hexa : %4X \n", H_temperature);
+    }
+}
+
+/************************Funciones Max31865 y SPI*********************** */
+static max31865_config_t config =
+{
+    .v_bias = true,
+    .filter = FILTER,
+    .mode = MAX31865_MODE_SINGLE,
+    .connection = RTD_CONNECTION
+};
+
+max31865_t ConfigMax31865(void  )
+{
+    // Configure SPI bus
+    spi_bus_config_t cfg =
+    {
+        .mosi_io_num = CONFIG_EXAMPLE_MOSI_GPIO,
+        .miso_io_num = CONFIG_EXAMPLE_MISO_GPIO,
+        .sclk_io_num = CONFIG_EXAMPLE_SCLK_GPIO,
+        .quadwp_io_num = -1,
+        .quadhd_io_num = -1,
+        .max_transfer_sz = 0,
+        .flags = 0
+    };
+    ESP_ERROR_CHECK(spi_bus_initialize(HOST, &cfg, 1));
+
+    // Init device
+    max31865_t dev =
+    {
+        .standard = RTD_STANDARD,
+        .r_ref = CONFIG_EXAMPLE_RTD_REF,
+        .rtd_nominal = CONFIG_EXAMPLE_RTD_NOMINAL,
+    };
+    ESP_ERROR_CHECK(max31865_init_desc(&dev, HOST, MAX31865_MAX_CLOCK_SPEED_HZ, CONFIG_EXAMPLE_CS_GPIO));
+
+    // Configure device
+    ESP_ERROR_CHECK(max31865_set_config(&dev, &config));
+   
+    return dev;
+}
+/********************************Fin************************************ */
 // An example application of Modbus slave. It is based on esp-modbus stack.
 // See deviceparams.h file for more information about assigned Modbus parameters.
 // These parameters can be accessed from main application and also can be changed
@@ -204,6 +343,8 @@ void app_main(void)
     err = mbc_get_handler(mbc_slave_handle, custom_command, &handler);
     MB_RETURN_ON_FALSE((err == ESP_OK && handler == my_custom_fc_handler), ;, TAG,
                         "could not get handler for command %d, returned (0x%x).", (int)custom_command, (int)err);
+    gpio_set_direction(GPIO_COIL_0, GPIO_MODE_OUTPUT);
+    ESP_LOGI(TAG, "GPIO para coil configurado.");
 
     // The code below initializes Modbus register area descriptors
     // for Modbus Holding Registers, Input Registers, Coils and Discrete Inputs
@@ -294,18 +435,24 @@ void app_main(void)
 
     ESP_LOGI(TAG, "Modbus slave stack initialized.");
     ESP_LOGI(TAG, "Start modbus test...");
-
-    // The cycle below will be terminated when parameter holdingRegParams.dataChan0
-    // incremented each access cycle reaches the CHAN_DATA_MAX_VAL value.
+    // Detect the DS18B20 sensor in the bus
+    sensor_detect();
+    max31865_t dev = ConfigMax31865( ); // Configuracion de SPI y Max
+    // El ciclo siguiente finalizará cuando el parámetro holdingRegParams.dataChan0 
+    // // incrementado en cada ciclo de acceso alcance el valor CHAN_DATA_MAX_VAL.
     for(;holding_reg_params.holding_data0 < MB_CHAN_DATA_MAX_VAL;) {
-        // Check for read/write events of Modbus master for certain events
+        
+        // Verificar eventos de lectura/escritura del maestro Modbus para ciertos eventos
+       
         (void)mbc_slave_check_event(mbc_slave_handle, MB_READ_WRITE_MASK);
-        // Get parameter information from parameter queue
+        // Obtener información de parámetros de la cola de parámetros
         ESP_ERROR_CHECK(mbc_slave_get_param_info(mbc_slave_handle, &reg_info, MB_PAR_INFO_GET_TOUT));
+        
         const char* rw_str = (reg_info.type & MB_READ_MASK) ? "READ" : "WRITE";
 
         // Filter events and process them accordingly
-        if(reg_info.type & (MB_EVENT_HOLDING_REG_WR | MB_EVENT_HOLDING_REG_RD)) {
+        if(reg_info.type & (MB_EVENT_HOLDING_REG_WR | MB_EVENT_HOLDING_REG_RD)) 
+        {
             ESP_LOGI(TAG, "HOLDING %s (%" PRIu32 " us), ADDR:%u, TYPE:%u, INST_ADDR:0x%" PRIx32 ", SIZE:%u",
                             rw_str,
                             reg_info.time_stamp,
@@ -313,8 +460,24 @@ void app_main(void)
                             (unsigned)reg_info.type,
                             (uint32_t)reg_info.address,
                             (unsigned)reg_info.size);
+                            sensor_read();
+		                    if (s_temperature < 100.0)//para evitar falsas lecturas
+		                    {
+                            printf("Temperatura exterior : %0.1fC\n", s_temperature);
+		                    printf("Temperatura Hexa : %4X \n", H_temperature);
+                            
+                            //holding_reg_params.holding_u16_ab[0] = 0x1089;
+                            holding_reg_params.holding_u16_ab[1] = H_temperature;
+                            }
+                            float temperature;
+                            esp_err_t res = max31865_measure(&dev, &temperature);
+                            printf("Temperatura interior : %0.2fC\n", temperature);
+                            temperature=temperature * 100.0;//es para no perder las centesimas
+                            TMax= (int16_t)roundf (temperature)  ;
+                            holding_reg_params.holding_u16_ab[0] = TMax;    
             if (reg_info.address == (uint8_t*)&holding_reg_params.holding_data0)
             {
+                
                 (void)mbc_slave_lock(mbc_slave_handle);
                 holding_reg_params.holding_data0 += MB_CHAN_DATA_OFFSET;
                 if (holding_reg_params.holding_data0 >= (MB_CHAN_DATA_MAX_VAL - MB_CHAN_DATA_OFFSET)) {
@@ -344,11 +507,28 @@ void app_main(void)
                             (unsigned)reg_info.type,
                             (uint32_t)reg_info.address,
                             (unsigned)reg_info.size);
+
+                            uint16_t coil_address = reg_info.mb_offset;
+                            uint8_t nuevo_estado = coil_reg_params.coils_port0;
+                            printf  ("Acceso a la bobina %u. Nuevo estado: %2X\n", 
+                            coil_address, nuevo_estado  );
+                             
+                            if ( (nuevo_estado & 0x01))//uso de coil 0 falta coil1
+                            {gpio_set_level(GPIO_COIL_0, 1);}
+                            else if ( !(nuevo_estado & 0x01))
+                            { gpio_set_level(GPIO_COIL_0, 0);}
+
+                             if ( (nuevo_estado & 0x02))//uso de coil 0 falta coil1
+                            {gpio_set_level(GPIO_COIL_0, 1);}
+                            else if ( !(nuevo_estado & 0x02))
+                            { gpio_set_level(GPIO_COIL_0, 0);}
+                            //coil_reg_params.coils_port0=0;
             if (coil_reg_params.coils_port1 == 0xFF) {
                 ESP_LOGI(TAG, "Stop polling.");
                 break;
+                
             }
-        }
+        } 
     }
     // Destroy of Modbus controller on alarm
     ESP_LOGI(TAG,"Modbus controller destroyed.");

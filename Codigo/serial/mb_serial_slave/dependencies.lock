@@ -1,4 +1,51 @@
 dependencies:
+  esp-idf-lib/esp_idf_lib_helpers:
+    component_hash: a8049b1e609679fb54b2d57b0399dd29c4d1fda09a797edac9926f7810aa5703
+    dependencies: []
+    source:
+      registry_url: https://components.espressif.com/
+      type: service
+    targets:
+    - esp32
+    - esp32c2
+    - esp32c3
+    - esp32c5
+    - esp32c6
+    - esp32c61
+    - esp32h2
+    - esp32p4
+    - esp32s2
+    - esp32s3
+    version: 1.3.10
+  esp-idf-lib/max31865:
+    component_hash: d49498742114cc48fbb4526423d0a3cef205f7faf7492f0bb5a289f9f9cb8e20
+    dependencies: []
+    source:
+      registry_url: https://components.espressif.com/
+      type: service
+    targets:
+    - esp32
+    - esp32c2
+    - esp32c3
+    - esp32c5
+    - esp32c6
+    - esp32c61
+    - esp32h2
+    - esp32p4
+    - esp32s2
+    - esp32s3
+    version: 1.0.7
+  espressif/ds18b20:
+    component_hash: 9792f38a20eb2fe7435cba349e3b4b7085381f05400233aacd849ced69e2207f
+    dependencies:
+    - name: espressif/onewire_bus
+      registry_url: https://components.espressif.com
+      require: private
+      version: ^1.0.0
+    source:
+      registry_url: https://components.espressif.com/
+      type: service
+    version: 0.2.0
   espressif/esp-modbus:
     dependencies:
     - name: idf
@@ -7,6 +54,16 @@ dependencies:
       path: C:\Tesis Maqui\esp-modbus
       type: local
     version: 2.1.1
+  espressif/onewire_bus:
+    component_hash: 11729fd9a5de80225177a61e9cd77de91683b8ec300e83710d5327b666dbe884
+    dependencies:
+    - name: idf
+      require: private
+      version: '>=5.0'
+    source:
+      registry_url: https://components.espressif.com
+      type: service
+    version: 1.0.4
   idf:
     source:
       type: idf
@@ -18,9 +75,12 @@ dependencies:
       type: local
     version: '*'
 direct_dependencies:
+- esp-idf-lib/esp_idf_lib_helpers
+- esp-idf-lib/max31865
+- espressif/ds18b20
 - espressif/esp-modbus
 - idf
 - mb_example_common
-manifest_hash: 3d6c68501465336c5608ed32ca9c51741fbe0dd45770778471fb32803693f474
+manifest_hash: 72553f7c4effbee62744e36efec7f2915cfe29139a17cadc70e9af86b8b0cfa5
 target: esp32
 version: 2.0.0
