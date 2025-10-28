@@ -1,0 +1,985 @@
+D (59442) mbs_error_cb_request_success: 03 14 00 55 00 55 55 00 55 00 07 88 01 32 39 30
+D (59452) mbs_error_cb_request_success: 39 30 30 39 00 00
+D (59462) mb_object.slave: 0x3ffc93a0, transaction processing time(us) = 141787
+Temperatura exterior : 19.1C
+Temperatura Hexa :  132
+D (59482) spi_master: Allocate RX buffer for DMA
+D (59552) spi_master: Allocate RX buffer for DMA
+D (59552) max31865: [CS 5] RTD resistance: 107.51312256
+Temperatura interior : 19.28C
+I (59552) SLAVE_TEST: HOLDING READ (58466175 us), ADDR:0, TYPE:2, INST_ADDR:0x3ffb5a1c, SIZE:10
+D (59642) mb_driver: 0x3ffca8a0, fd event get: 0x100:-1, |MB_EVENT_TIMEOUT
+D (59642) event: running post loop:0x3ffca8a0:256 with handler 0x400dcf58 and context 0x3ffccedc on loop 0x3ffcabf0
+--- 0x400dcf58: mbs_on_timeout at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:644
+D (59642) mb_port.tcp.slave: loop:0x3ffca8a0 mbs_on_timeout: fd: 0, count: 1
+D (59652) mb_driver: 0x3ffca8a0, node: 0, sock: 55, IP:192.168.0.245, check connection timeout = 58788, rcv_time: 58342 4000
+D (59902) mb_driver: 0x3ffca8a0, fd event get: 0x100:-1, |MB_EVENT_TIMEOUT
+D (59902) event: running post loop:0x3ffca8a0:256 with handler 0x400dcf58 and context 0x3ffccedc on loop 0x3ffcabf0
+--- 0x400dcf58: mbs_on_timeout at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:644
+D (59902) mb_port.tcp.slave: loop:0x3ffca8a0 mbs_on_timeout: fd: 0, count: 1
+D (59912) mb_driver: 0x3ffca8a0, node: 0, sock: 55, IP:192.168.0.245, check connection timeout = 59047, rcv_time: 58342 4000
+D (60162) mb_driver: 0x3ffca8a0, fd event get: 0x100:-1, |MB_EVENT_TIMEOUT
+D (60162) event: running post loop:0x3ffca8a0:256 with handler 0x400dcf58 and context 0x3ffccedc on loop 0x3ffcabf0
+--- 0x400dcf58: mbs_on_timeout at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:644
+D (60162) mb_port.tcp.slave: loop:0x3ffca8a0 mbs_on_timeout: fd: 0, count: 1
+D (60172) mb_driver: 0x3ffca8a0, node: 0, sock: 55, IP:192.168.0.245, check connection timeout = 59307, rcv_time: 58342 4000
+D (60212) mb_driver: 0x3ffca8a0, socket event active: 80000000000000
+D (60212) port.utils: Enqueue data, length=12, TID=0x75
+D (60212) mb_driver: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), frame received.
+D (60222) mb_driver: 0x3ffca8a0, fd event get: 0x20:0, |MB_EVENT_RECV_DATA
+D (60222) event: running post loop:0x3ffca8a0:32 with handler 0x400dc7e0 and context 0x3ffcce7c on loop 0x3ffcabf0
+--- 0x400dc7e0: mbs_on_recv_data at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:403
+D (60232) mb_port.tcp.slave: loop:0x3ffca8a0  mbs_on_recv_data: fd: 0
+D (60242) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55) [192.168.0.245], receive data ready.
+D (60252) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), received packet TID: 0x0075, frame: 0x3ffcd15c, 12      
+D (60262) mb_transaction: ENQUEUE msgid=75, len=12, size=12
+D (60262) mb_port.event: mbs_tcp@0x3ffc93a0, mb take resource, (5 ticks).
+D (60272) mb_port.timer: mbs_tcp@0x3ffc93a0, timer stop, returns 259.
+D (60282) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), acknoledged packet TID: 0x0075, start transaction.      
+D (60292) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), acknoledged packet TID: 0x0075.
+D (60302) mb_object.slave: 0x3ffc93a0:EV_FRAME_RECEIVED
+D (60312) mb_port.tcp.slave: 0x3ffca70c, node #0, socket(#55)(192.168.0.245), read packet, TID: 0x0075, 0x3ffca4e8.
+D (60322) mbs_tcp@0x3ffc93a0:MB_RECV: 03 00 00 00 0a
+D (60322) mb_object.slave: 0x3ffc93a0:EV_EXECUTE
+D (60332) MB_FUNC_HANDLING: Inst: 0x3ffc93a0, get handler: 0x3, 0x400dbda8
+--- 0x400dbda8: mbs_fn_read_holding_reg at C:/Tesis Maqui/esp-modbus/modbus/mb_objects/functions/mbfuncholding.c:144
+D (60332) MB_CONTROLLER_SLAVE: The MB_REG_CHANGE_EVENT = 0x02 is set.
+D (60342) MB_CONTROLLER_SLAVE: Queue send parameter info (type, address, size): 2, 0x3ffb5a1c, 10
+D (60352) mb_object.slave: 0x3ffc93a0: function (0x3), invoke handler 0x400dbda8.
+--- 0x400dbda8: mbs_fn_read_holding_reg at C:/Tesis Maqui/esp-modbus/modbus/mb_objects/functions/mbfuncholding.c:144
+D (60362) mbs_tcp@0x3ffc93a0:MB_SEND: 03 14 00 55 00 55 55 00 55 00 07 88 01 32 39 30
+D (60362) mbs_tcp@0x3ffc93a0:MB_SEND: 39 30 30 39 00 00
+D (60372) mb_port.tcp.slave: 0x3ffca8a0, node: #0, socket(#55)[192.168.0.245], send packet TID: 0x0075:0x0075, 0x3ffca4e8, len: 29,   
+D (60382) mb_driver: 0x3ffca8a0, fd event get: 0x10:0, |MB_EVENT_SEND_DATA
+D (60392) event: running post loop:0x3ffca8a0:16 with handler 0x400dca64 and context 0x3ffcd0e0 on loop 0x3ffcabf0
+--- 0x400dca64: mbs_on_send_data at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:485
+D (60402) mb_port.tcp.slave: loop:0x3ffca8a0  mbs_on_send_data: fd: 0
+D (60412) SENT: 00 75 00 00 00 17 01 03 14 00 55 00 55 55 00 55
+D (60412) SENT: 00 07 88 01 32 39 30 39 30 30 39 00 00
+D (60422) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), sent packet TID: 0x0075, 0x3ffcf5e8.
+D (60432) mb_port.tcp.slave: Remove the message TID:0x0075
+D (60432) mb_object.slave: 0x3ffc93a0:EV_MASTER_FRAME_SENT
+D (60442) mb_object.slave: 0x3ffc93a0, set event EV_ERROR_OK
+D (60442) mb_object.slave: 0x3ffc93a0:EV_ERROR_PROCESS
+D (60452) mb_port.timer: mbs_tcp@0x3ffc93a0, timer stop, returns 259.
+D (60452) mbs_error_cb_request_success: 03 14 00 55 00 55 55 00 55 00 07 88 01 32 39 30
+D (60462) mbs_error_cb_request_success: 39 30 30 39 00 00
+D (60472) mb_object.slave: 0x3ffc93a0, transaction processing time(us) = 141779
+Temperatura exterior : 19.1C
+Temperatura Hexa :  132
+D (60492) spi_master: Allocate RX buffer for DMA
+D (60562) spi_master: Allocate RX buffer for DMA
+D (60562) max31865: [CS 5] RTD resistance: 107.52624512
+Temperatura interior : 19.31C
+I (60562) SLAVE_TEST: HOLDING READ (59476201 us), ADDR:0, TYPE:2, INST_ADDR:0x3ffb5a1c, SIZE:10
+D (60652) mb_driver: 0x3ffca8a0, fd event get: 0x100:-1, |MB_EVENT_TIMEOUT
+D (60652) event: running post loop:0x3ffca8a0:256 with handler 0x400dcf58 and context 0x3ffccedc on loop 0x3ffcabf0
+--- 0x400dcf58: mbs_on_timeout at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:644
+D (60652) mb_port.tcp.slave: loop:0x3ffca8a0 mbs_on_timeout: fd: 0, count: 1
+D (60662) mb_driver: 0x3ffca8a0, node: 0, sock: 55, IP:192.168.0.245, check connection timeout = 59798, rcv_time: 59352 4000
+D (60912) mb_driver: 0x3ffca8a0, fd event get: 0x100:-1, |MB_EVENT_TIMEOUT
+D (60912) event: running post loop:0x3ffca8a0:256 with handler 0x400dcf58 and context 0x3ffccedc on loop 0x3ffcabf0
+--- 0x400dcf58: mbs_on_timeout at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:644
+D (60912) mb_port.tcp.slave: loop:0x3ffca8a0 mbs_on_timeout: fd: 0, count: 1
+D (60922) mb_driver: 0x3ffca8a0, node: 0, sock: 55, IP:192.168.0.245, check connection timeout = 60057, rcv_time: 59352 4000
+D (61172) mb_driver: 0x3ffca8a0, fd event get: 0x100:-1, |MB_EVENT_TIMEOUT
+D (61172) event: running post loop:0x3ffca8a0:256 with handler 0x400dcf58 and context 0x3ffccedc on loop 0x3ffcabf0
+--- 0x400dcf58: mbs_on_timeout at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:644
+D (61172) mb_port.tcp.slave: loop:0x3ffca8a0 mbs_on_timeout: fd: 0, count: 1
+D (61182) mb_driver: 0x3ffca8a0, node: 0, sock: 55, IP:192.168.0.245, check connection timeout = 60317, rcv_time: 59352 4000
+D (61222) mb_driver: 0x3ffca8a0, socket event active: 80000000000000
+D (61222) port.utils: Enqueue data, length=12, TID=0x76
+D (61222) mb_driver: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), frame received.
+D (61232) mb_driver: 0x3ffca8a0, fd event get: 0x20:0, |MB_EVENT_RECV_DATA
+D (61232) event: running post loop:0x3ffca8a0:32 with handler 0x400dc7e0 and context 0x3ffcce7c on loop 0x3ffcabf0
+--- 0x400dc7e0: mbs_on_recv_data at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:403
+D (61242) mb_port.tcp.slave: loop:0x3ffca8a0  mbs_on_recv_data: fd: 0
+D (61252) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55) [192.168.0.245], receive data ready.
+D (61262) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), received packet TID: 0x0076, frame: 0x3ffcd15c, 12      
+D (61272) mb_transaction: ENQUEUE msgid=76, len=12, size=12
+D (61282) mb_port.event: mbs_tcp@0x3ffc93a0, mb take resource, (5 ticks).
+D (61282) mb_port.timer: mbs_tcp@0x3ffc93a0, timer stop, returns 259.
+D (61292) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), acknoledged packet TID: 0x0076, start transaction.
+D (61302) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), acknoledged packet TID: 0x0076.
+D (61312) mb_object.slave: 0x3ffc93a0:EV_FRAME_RECEIVED
+D (61322) mb_port.tcp.slave: 0x3ffca70c, node #0, socket(#55)(192.168.0.245), read packet, TID: 0x0076, 0x3ffca4e8.
+D (61332) mbs_tcp@0x3ffc93a0:MB_RECV: 03 00 00 00 0a
+D (61332) mb_object.slave: 0x3ffc93a0:EV_EXECUTE
+D (61342) MB_FUNC_HANDLING: Inst: 0x3ffc93a0, get handler: 0x3, 0x400dbda8
+--- 0x400dbda8: mbs_fn_read_holding_reg at C:/Tesis Maqui/esp-modbus/modbus/mb_objects/functions/mbfuncholding.c:144
+D (61342) MB_CONTROLLER_SLAVE: The MB_REG_CHANGE_EVENT = 0x02 is set.
+D (61352) MB_CONTROLLER_SLAVE: Queue send parameter info (type, address, size): 2, 0x3ffb5a1c, 10
+D (61362) mb_object.slave: 0x3ffc93a0: function (0x3), invoke handler 0x400dbda8.
+--- 0x400dbda8: mbs_fn_read_holding_reg at C:/Tesis Maqui/esp-modbus/modbus/mb_objects/functions/mbfuncholding.c:144
+D (61372) mbs_tcp@0x3ffc93a0:MB_SEND: 03 14 00 55 00 55 55 00 55 00 07 8b 01 32 39 30
+D (61372) mbs_tcp@0x3ffc93a0:MB_SEND: 39 30 30 39 00 00
+D (61382) mb_port.tcp.slave: 0x3ffca8a0, node: #0, socket(#55)[192.168.0.245], send packet TID: 0x0076:0x0076, 0x3ffca4e8, len: 29,   
+D (61392) mb_driver: 0x3ffca8a0, fd event get: 0x10:0, |MB_EVENT_SEND_DATA
+D (61402) event: running post loop:0x3ffca8a0:16 with handler 0x400dca64 and context 0x3ffcd0e0 on loop 0x3ffcabf0
+--- 0x400dca64: mbs_on_send_data at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:485
+D (61412) mb_port.tcp.slave: loop:0x3ffca8a0  mbs_on_send_data: fd: 0
+D (61422) SENT: 00 76 00 00 00 17 01 03 14 00 55 00 55 55 00 55
+D (61422) SENT: 00 07 8b 01 32 39 30 39 30 30 39 00 00
+D (61432) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), sent packet TID: 0x0076, 0x3ffcf5e8.
+D (61442) mb_port.tcp.slave: Remove the message TID:0x0076
+D (61442) mb_object.slave: 0x3ffc93a0:EV_MASTER_FRAME_SENT
+D (61452) mb_object.slave: 0x3ffc93a0, set event EV_ERROR_OK
+D (61452) mb_object.slave: 0x3ffc93a0:EV_ERROR_PROCESS
+D (61462) mb_port.timer: mbs_tcp@0x3ffc93a0, timer stop, returns 259.
+D (61462) mbs_error_cb_request_success: 03 14 00 55 00 55 55 00 55 00 07 8b 01 32 39 30
+D (61472) mbs_error_cb_request_success: 39 30 30 39 00 00
+D (61482) mb_object.slave: 0x3ffc93a0, transaction processing time(us) = 141638
+Temperatura exterior : 19.2C
+Temperatura Hexa :  133
+D (61502) spi_master: Allocate RX buffer for DMA
+D (61572) spi_master: Allocate RX buffer for DMA
+D (61572) max31865: [CS 5] RTD resistance: 107.52624512
+Temperatura interior : 19.31C
+I (61572) SLAVE_TEST: HOLDING READ (60486408 us), ADDR:0, TYPE:2, INST_ADDR:0x3ffb5a1c, SIZE:10
+D (61662) mb_driver: 0x3ffca8a0, fd event get: 0x100:-1, |MB_EVENT_TIMEOUT
+D (61662) event: running post loop:0x3ffca8a0:256 with handler 0x400dcf58 and context 0x3ffccedc on loop 0x3ffcabf0
+--- 0x400dcf58: mbs_on_timeout at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:644
+D (61662) mb_port.tcp.slave: loop:0x3ffca8a0 mbs_on_timeout: fd: 0, count: 1
+D (61672) mb_driver: 0x3ffca8a0, node: 0, sock: 55, IP:192.168.0.245, check connection timeout = 60808, rcv_time: 60362 4000
+D (61922) mb_driver: 0x3ffca8a0, fd event get: 0x100:-1, |MB_EVENT_TIMEOUT
+D (61922) event: running post loop:0x3ffca8a0:256 with handler 0x400dcf58 and context 0x3ffccedc on loop 0x3ffcabf0
+--- 0x400dcf58: mbs_on_timeout at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:644
+D (61922) mb_port.tcp.slave: loop:0x3ffca8a0 mbs_on_timeout: fd: 0, count: 1
+D (61932) mb_driver: 0x3ffca8a0, node: 0, sock: 55, IP:192.168.0.245, check connection timeout = 61068, rcv_time: 60362 4000
+D (62182) mb_driver: 0x3ffca8a0, fd event get: 0x100:-1, |MB_EVENT_TIMEOUT
+D (62182) event: running post loop:0x3ffca8a0:256 with handler 0x400dcf58 and context 0x3ffccedc on loop 0x3ffcabf0
+--- 0x400dcf58: mbs_on_timeout at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:644
+D (62182) mb_port.tcp.slave: loop:0x3ffca8a0 mbs_on_timeout: fd: 0, count: 1
+D (62192) mb_driver: 0x3ffca8a0, node: 0, sock: 55, IP:192.168.0.245, check connection timeout = 61328, rcv_time: 60362 4000
+D (62232) mb_driver: 0x3ffca8a0, socket event active: 80000000000000
+D (62232) port.utils: Enqueue data, length=12, TID=0x77
+D (62232) mb_driver: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), frame received.
+D (62242) mb_driver: 0x3ffca8a0, fd event get: 0x20:0, |MB_EVENT_RECV_DATA
+D (62242) event: running post loop:0x3ffca8a0:32 with handler 0x400dc7e0 and context 0x3ffcce7c on loop 0x3ffcabf0
+--- 0x400dc7e0: mbs_on_recv_data at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:403
+D (62252) mb_port.tcp.slave: loop:0x3ffca8a0  mbs_on_recv_data: fd: 0
+D (62262) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55) [192.168.0.245], receive data ready.
+D (62272) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), received packet TID: 0x0077, frame: 0x3ffcd15c, 12      
+D (62282) mb_transaction: ENQUEUE msgid=77, len=12, size=12
+D (62292) mb_port.event: mbs_tcp@0x3ffc93a0, mb take resource, (5 ticks).
+D (62292) mb_port.timer: mbs_tcp@0x3ffc93a0, timer stop, returns 259.
+D (62302) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), acknoledged packet TID: 0x0077, start transaction.      
+D (62312) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), acknoledged packet TID: 0x0077.
+D (62322) mb_object.slave: 0x3ffc93a0:EV_FRAME_RECEIVED
+D (62332) mb_port.tcp.slave: 0x3ffca70c, node #0, socket(#55)(192.168.0.245), read packet, TID: 0x0077, 0x3ffca4e8.
+D (62342) mbs_tcp@0x3ffc93a0:MB_RECV: 03 00 00 00 0a
+D (62342) mb_object.slave: 0x3ffc93a0:EV_EXECUTE
+D (62352) MB_FUNC_HANDLING: Inst: 0x3ffc93a0, get handler: 0x3, 0x400dbda8
+--- 0x400dbda8: mbs_fn_read_holding_reg at C:/Tesis Maqui/esp-modbus/modbus/mb_objects/functions/mbfuncholding.c:144
+D (62352) MB_CONTROLLER_SLAVE: The MB_REG_CHANGE_EVENT = 0x02 is set.
+D (62362) MB_CONTROLLER_SLAVE: Queue send parameter info (type, address, size): 2, 0x3ffb5a1c, 10
+D (62372) mb_object.slave: 0x3ffc93a0: function (0x3), invoke handler 0x400dbda8.
+--- 0x400dbda8: mbs_fn_read_holding_reg at C:/Tesis Maqui/esp-modbus/modbus/mb_objects/functions/mbfuncholding.c:144
+D (62382) mbs_tcp@0x3ffc93a0:MB_SEND: 03 14 00 55 00 55 55 00 55 00 07 8b 01 33 39 30
+D (62382) mbs_tcp@0x3ffc93a0:MB_SEND: 39 30 30 39 00 00
+D (62392) mb_port.tcp.slave: 0x3ffca8a0, node: #0, socket(#55)[192.168.0.245], send packet TID: 0x0077:0x0077, 0x3ffca4e8, len: 29, 
+D (62402) mb_driver: 0x3ffca8a0, fd event get: 0x10:0, |MB_EVENT_SEND_DATA
+D (62412) event: running post loop:0x3ffca8a0:16 with handler 0x400dca64 and context 0x3ffcd0e0 on loop 0x3ffcabf0
+--- 0x400dca64: mbs_on_send_data at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:485
+D (62422) mb_port.tcp.slave: loop:0x3ffca8a0  mbs_on_send_data: fd: 0
+D (62432) SENT: 00 77 00 00 00 17 01 03 14 00 55 00 55 55 00 55
+D (62432) SENT: 00 07 8b 01 33 39 30 39 30 30 39 00 00
+D (62442) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), sent packet TID: 0x0077, 0x3ffcf5e8.
+D (62452) mb_port.tcp.slave: Remove the message TID:0x0077
+D (62452) mb_object.slave: 0x3ffc93a0:EV_MASTER_FRAME_SENT
+D (62462) mb_object.slave: 0x3ffc93a0, set event EV_ERROR_OK
+D (62462) mb_object.slave: 0x3ffc93a0:EV_ERROR_PROCESS
+D (62472) mb_port.timer: mbs_tcp@0x3ffc93a0, timer stop, returns 259.
+D (62472) mbs_error_cb_request_success: 03 14 00 55 00 55 55 00 55 00 07 8b 01 33 39 30
+D (62482) mbs_error_cb_request_success: 39 30 30 39 00 00
+D (62492) mb_object.slave: 0x3ffc93a0, transaction processing time(us) = 141677
+Temperatura exterior : 19.1C
+Temperatura Hexa :  132
+D (62512) spi_master: Allocate RX buffer for DMA
+D (62582) spi_master: Allocate RX buffer for DMA
+D (62582) max31865: [CS 5] RTD resistance: 107.52624512
+Temperatura interior : 19.31C
+I (62582) SLAVE_TEST: HOLDING READ (61496570 us), ADDR:0, TYPE:2, INST_ADDR:0x3ffb5a1c, SIZE:10
+D (62672) mb_driver: 0x3ffca8a0, fd event get: 0x100:-1, |MB_EVENT_TIMEOUT
+D (62672) event: running post loop:0x3ffca8a0:256 with handler 0x400dcf58 and context 0x3ffccedc on loop 0x3ffcabf0
+--- 0x400dcf58: mbs_on_timeout at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:644
+D (62672) mb_port.tcp.slave: loop:0x3ffca8a0 mbs_on_timeout: fd: 0, count: 1
+D (62682) mb_driver: 0x3ffca8a0, node: 0, sock: 55, IP:192.168.0.245, check connection timeout = 61818, rcv_time: 61372 4000
+D (62932) mb_driver: 0x3ffca8a0, fd event get: 0x100:-1, |MB_EVENT_TIMEOUT
+D (62932) event: running post loop:0x3ffca8a0:256 with handler 0x400dcf58 and context 0x3ffccedc on loop 0x3ffcabf0
+--- 0x400dcf58: mbs_on_timeout at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:644
+D (62932) mb_port.tcp.slave: loop:0x3ffca8a0 mbs_on_timeout: fd: 0, count: 1
+D (62942) mb_driver: 0x3ffca8a0, node: 0, sock: 55, IP:192.168.0.245, check connection timeout = 62077, rcv_time: 61372 4000
+D (63192) mb_driver: 0x3ffca8a0, fd event get: 0x100:-1, |MB_EVENT_TIMEOUT
+D (63192) event: running post loop:0x3ffca8a0:256 with handler 0x400dcf58 and context 0x3ffccedc on loop 0x3ffcabf0
+--- 0x400dcf58: mbs_on_timeout at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:644
+D (63192) mb_port.tcp.slave: loop:0x3ffca8a0 mbs_on_timeout: fd: 0, count: 1
+D (63202) mb_driver: 0x3ffca8a0, node: 0, sock: 55, IP:192.168.0.245, check connection timeout = 62337, rcv_time: 61372 4000
+D (63242) mb_driver: 0x3ffca8a0, socket event active: 80000000000000
+D (63242) port.utils: Enqueue data, length=12, TID=0x78
+D (63242) mb_driver: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), frame received.
+D (63252) mb_driver: 0x3ffca8a0, fd event get: 0x20:0, |MB_EVENT_RECV_DATA
+D (63252) event: running post loop:0x3ffca8a0:32 with handler 0x400dc7e0 and context 0x3ffcce7c on loop 0x3ffcabf0
+--- 0x400dc7e0: mbs_on_recv_data at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:403
+D (63262) mb_port.tcp.slave: loop:0x3ffca8a0  mbs_on_recv_data: fd: 0
+D (63272) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55) [192.168.0.245], receive data ready.
+D (63282) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), received packet TID: 0x0078, frame: 0x3ffcd15c, 12      
+D (63292) mb_transaction: ENQUEUE msgid=78, len=12, size=12
+D (63302) mb_port.event: mbs_tcp@0x3ffc93a0, mb take resource, (5 ticks).
+D (63302) mb_port.timer: mbs_tcp@0x3ffc93a0, timer stop, returns 259.
+D (63312) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), acknoledged packet TID: 0x0078, start transaction.      
+D (63322) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), acknoledged packet TID: 0x0078.
+D (63332) mb_object.slave: 0x3ffc93a0:EV_FRAME_RECEIVED
+D (63342) mb_port.tcp.slave: 0x3ffca70c, node #0, socket(#55)(192.168.0.245), read packet, TID: 0x0078, 0x3ffca4e8.
+D (63352) mbs_tcp@0x3ffc93a0:MB_RECV: 03 00 00 00 0a
+D (63352) mb_object.slave: 0x3ffc93a0:EV_EXECUTE
+D (63362) MB_FUNC_HANDLING: Inst: 0x3ffc93a0, get handler: 0x3, 0x400dbda8
+--- 0x400dbda8: mbs_fn_read_holding_reg at C:/Tesis Maqui/esp-modbus/modbus/mb_objects/functions/mbfuncholding.c:144
+D (63362) MB_CONTROLLER_SLAVE: The MB_REG_CHANGE_EVENT = 0x02 is set.
+D (63372) MB_CONTROLLER_SLAVE: Queue send parameter info (type, address, size): 2, 0x3ffb5a1c, 10
+D (63382) mb_object.slave: 0x3ffc93a0: function (0x3), invoke handler 0x400dbda8.
+--- 0x400dbda8: mbs_fn_read_holding_reg at C:/Tesis Maqui/esp-modbus/modbus/mb_objects/functions/mbfuncholding.c:144
+D (63392) mbs_tcp@0x3ffc93a0:MB_SEND: 03 14 00 55 00 55 55 00 55 00 07 8b 01 32 39 30
+D (63392) mbs_tcp@0x3ffc93a0:MB_SEND: 39 30 30 39 00 00
+D (63402) mb_port.tcp.slave: 0x3ffca8a0, node: #0, socket(#55)[192.168.0.245], send packet TID: 0x0078:0x0078, 0x3ffca4e8, len: 29,   
+D (63412) mb_driver: 0x3ffca8a0, fd event get: 0x10:0, |MB_EVENT_SEND_DATA
+D (63422) event: running post loop:0x3ffca8a0:16 with handler 0x400dca64 and context 0x3ffcd0e0 on loop 0x3ffcabf0
+--- 0x400dca64: mbs_on_send_data at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:485
+D (63432) mb_port.tcp.slave: loop:0x3ffca8a0  mbs_on_send_data: fd: 0
+D (63442) SENT: 00 78 00 00 00 17 01 03 14 00 55 00 55 55 00 55
+D (63442) SENT: 00 07 8b 01 32 39 30 39 30 30 39 00 00
+D (63452) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), sent packet TID: 0x0078, 0x3ffcf5e8.
+D (63462) mb_port.tcp.slave: Remove the message TID:0x0078
+D (63462) mb_object.slave: 0x3ffc93a0:EV_MASTER_FRAME_SENT
+D (63472) mb_object.slave: 0x3ffc93a0, set event EV_ERROR_OK
+D (63472) mb_object.slave: 0x3ffc93a0:EV_ERROR_PROCESS
+D (63482) mb_port.timer: mbs_tcp@0x3ffc93a0, timer stop, returns 259.
+D (63482) mbs_error_cb_request_success: 03 14 00 55 00 55 55 00 55 00 07 8b 01 32 39 30
+D (63492) mbs_error_cb_request_success: 39 30 30 39 00 00
+D (63502) mb_object.slave: 0x3ffc93a0, transaction processing time(us) = 141637
+Temperatura exterior : 19.1C
+Temperatura Hexa :  132
+D (63522) spi_master: Allocate RX buffer for DMA
+D (63592) spi_master: Allocate RX buffer for DMA
+D (63592) max31865: [CS 5] RTD resistance: 107.52624512
+Temperatura interior : 19.31C
+I (63592) SLAVE_TEST: HOLDING READ (62506597 us), ADDR:0, TYPE:2, INST_ADDR:0x3ffb5a1c, SIZE:10
+D (63682) mb_driver: 0x3ffca8a0, fd event get: 0x100:-1, |MB_EVENT_TIMEOUT
+D (63682) event: running post loop:0x3ffca8a0:256 with handler 0x400dcf58 and context 0x3ffccedc on loop 0x3ffcabf0
+--- 0x400dcf58: mbs_on_timeout at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:644
+D (63682) mb_port.tcp.slave: loop:0x3ffca8a0 mbs_on_timeout: fd: 0, count: 1
+D (63692) mb_driver: 0x3ffca8a0, node: 0, sock: 55, IP:192.168.0.245, check connection timeout = 62828, rcv_time: 62382 4000
+D (63942) mb_driver: 0x3ffca8a0, fd event get: 0x100:-1, |MB_EVENT_TIMEOUT
+D (63942) event: running post loop:0x3ffca8a0:256 with handler 0x400dcf58 and context 0x3ffccedc on loop 0x3ffcabf0
+--- 0x400dcf58: mbs_on_timeout at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:644
+D (63942) mb_port.tcp.slave: loop:0x3ffca8a0 mbs_on_timeout: fd: 0, count: 1
+D (63952) mb_driver: 0x3ffca8a0, node: 0, sock: 55, IP:192.168.0.245, check connection timeout = 63088, rcv_time: 62382 4000
+D (64202) mb_driver: 0x3ffca8a0, fd event get: 0x100:-1, |MB_EVENT_TIMEOUT
+D (64202) event: running post loop:0x3ffca8a0:256 with handler 0x400dcf58 and context 0x3ffccedc on loop 0x3ffcabf0
+--- 0x400dcf58: mbs_on_timeout at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:644
+D (64202) mb_port.tcp.slave: loop:0x3ffca8a0 mbs_on_timeout: fd: 0, count: 1
+D (64212) mb_driver: 0x3ffca8a0, node: 0, sock: 55, IP:192.168.0.245, check connection timeout = 63347, rcv_time: 62382 4000
+D (64252) mb_driver: 0x3ffca8a0, socket event active: 80000000000000
+D (64252) port.utils: Enqueue data, length=12, TID=0x79
+D (64252) mb_driver: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), frame received.
+D (64262) mb_driver: 0x3ffca8a0, fd event get: 0x20:0, |MB_EVENT_RECV_DATA
+D (64262) event: running post loop:0x3ffca8a0:32 with handler 0x400dc7e0 and context 0x3ffcce7c on loop 0x3ffcabf0
+--- 0x400dc7e0: mbs_on_recv_data at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:403
+D (64272) mb_port.tcp.slave: loop:0x3ffca8a0  mbs_on_recv_data: fd: 0
+D (64282) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55) [192.168.0.245], receive data ready.
+D (64292) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), received packet TID: 0x0079, frame: 0x3ffcd15c, 12
+D (64302) mb_transaction: ENQUEUE msgid=79, len=12, size=12
+D (64302) mb_port.event: mbs_tcp@0x3ffc93a0, mb take resource, (5 ticks).
+D (64312) mb_port.timer: mbs_tcp@0x3ffc93a0, timer stop, returns 259.
+D (64322) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), acknoledged packet TID: 0x0079, start transaction.      
+D (64332) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), acknoledged packet TID: 0x0079.
+D (64342) mb_object.slave: 0x3ffc93a0:EV_FRAME_RECEIVED
+D (64352) mb_port.tcp.slave: 0x3ffca70c, node #0, socket(#55)(192.168.0.245), read packet, TID: 0x0079, 0x3ffca4e8.
+D (64362) mbs_tcp@0x3ffc93a0:MB_RECV: 03 00 00 00 0a
+D (64362) mb_object.slave: 0x3ffc93a0:EV_EXECUTE
+D (64372) MB_FUNC_HANDLING: Inst: 0x3ffc93a0, get handler: 0x3, 0x400dbda8
+--- 0x400dbda8: mbs_fn_read_holding_reg at C:/Tesis Maqui/esp-modbus/modbus/mb_objects/functions/mbfuncholding.c:144
+D (64372) MB_CONTROLLER_SLAVE: The MB_REG_CHANGE_EVENT = 0x02 is set.
+D (64382) MB_CONTROLLER_SLAVE: Queue send parameter info (type, address, size): 2, 0x3ffb5a1c, 10
+D (64392) mb_object.slave: 0x3ffc93a0: function (0x3), invoke handler 0x400dbda8.
+--- 0x400dbda8: mbs_fn_read_holding_reg at C:/Tesis Maqui/esp-modbus/modbus/mb_objects/functions/mbfuncholding.c:144
+D (64402) mbs_tcp@0x3ffc93a0:MB_SEND: 03 14 00 55 00 55 55 00 55 00 07 8b 01 32 39 30
+D (64402) mbs_tcp@0x3ffc93a0:MB_SEND: 39 30 30 39 00 00
+D (64412) mb_port.tcp.slave: 0x3ffca8a0, node: #0, socket(#55)[192.168.0.245], send packet TID: 0x0079:0x0079, 0x3ffca4e8, len: 29,   
+D (64412) mb_driver: 0x3ffca8a0, fd event get: 0x10:0, |MB_EVENT_SEND_DATA
+D (64432) event: running post loop:0x3ffca8a0:16 with handler 0x400dca64 and context 0x3ffcd0e0 on loop 0x3ffcabf0
+--- 0x400dca64: mbs_on_send_data at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:485
+D (64442) mb_port.tcp.slave: loop:0x3ffca8a0  mbs_on_send_data: fd: 0
+D (64452) SENT: 00 79 00 00 00 17 01 03 14 00 55 00 55 55 00 55
+D (64452) SENT: 00 07 8b 01 32 39 30 39 30 30 39 00 00
+D (64462) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), sent packet TID: 0x0079, 0x3ffcf5e8.
+D (64472) mb_port.tcp.slave: Remove the message TID:0x0079
+D (64472) mb_object.slave: 0x3ffc93a0:EV_MASTER_FRAME_SENT
+D (64482) mb_object.slave: 0x3ffc93a0, set event EV_ERROR_OK
+D (64482) mb_object.slave: 0x3ffc93a0:EV_ERROR_PROCESS
+D (64492) mb_port.timer: mbs_tcp@0x3ffc93a0, timer stop, returns 259.
+D (64492) mbs_error_cb_request_success: 03 14 00 55 00 55 55 00 55 00 07 8b 01 32 39 30
+D (64502) mbs_error_cb_request_success: 39 30 30 39 00 00
+D (64512) mb_object.slave: 0x3ffc93a0, transaction processing time(us) = 141752
+Temperatura exterior : 19.2C
+Temperatura Hexa :  133
+D (64532) spi_master: Allocate RX buffer for DMA
+D (64602) spi_master: Allocate RX buffer for DMA
+D (64602) max31865: [CS 5] RTD resistance: 107.52624512
+Temperatura interior : 19.31C
+I (64602) SLAVE_TEST: HOLDING READ (63516224 us), ADDR:0, TYPE:2, INST_ADDR:0x3ffb5a1c, SIZE:10
+D (64692) mb_driver: 0x3ffca8a0, fd event get: 0x100:-1, |MB_EVENT_TIMEOUT
+D (64692) event: running post loop:0x3ffca8a0:256 with handler 0x400dcf58 and context 0x3ffccedc on loop 0x3ffcabf0
+--- 0x400dcf58: mbs_on_timeout at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:644
+D (64692) mb_port.tcp.slave: loop:0x3ffca8a0 mbs_on_timeout: fd: 0, count: 1
+D (64702) mb_driver: 0x3ffca8a0, node: 0, sock: 55, IP:192.168.0.245, check connection timeout = 63838, rcv_time: 63392 4000
+D (64952) mb_driver: 0x3ffca8a0, fd event get: 0x100:-1, |MB_EVENT_TIMEOUT
+D (64952) event: running post loop:0x3ffca8a0:256 with handler 0x400dcf58 and context 0x3ffccedc on loop 0x3ffcabf0
+--- 0x400dcf58: mbs_on_timeout at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:644
+D (64952) mb_port.tcp.slave: loop:0x3ffca8a0 mbs_on_timeout: fd: 0, count: 1
+D (64962) mb_driver: 0x3ffca8a0, node: 0, sock: 55, IP:192.168.0.245, check connection timeout = 64098, rcv_time: 63392 4000
+D (65212) mb_driver: 0x3ffca8a0, fd event get: 0x100:-1, |MB_EVENT_TIMEOUT
+D (65212) event: running post loop:0x3ffca8a0:256 with handler 0x400dcf58 and context 0x3ffccedc on loop 0x3ffcabf0
+--- 0x400dcf58: mbs_on_timeout at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:644
+D (65212) mb_port.tcp.slave: loop:0x3ffca8a0 mbs_on_timeout: fd: 0, count: 1
+D (65222) mb_driver: 0x3ffca8a0, node: 0, sock: 55, IP:192.168.0.245, check connection timeout = 64357, rcv_time: 63392 4000
+D (65262) mb_driver: 0x3ffca8a0, socket event active: 80000000000000
+D (65262) port.utils: Enqueue data, length=12, TID=0x7a
+D (65262) mb_driver: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), frame received.
+D (65272) mb_driver: 0x3ffca8a0, fd event get: 0x20:0, |MB_EVENT_RECV_DATA
+D (65272) event: running post loop:0x3ffca8a0:32 with handler 0x400dc7e0 and context 0x3ffcce7c on loop 0x3ffcabf0
+--- 0x400dc7e0: mbs_on_recv_data at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:403
+D (65282) mb_port.tcp.slave: loop:0x3ffca8a0  mbs_on_recv_data: fd: 0
+D (65292) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55) [192.168.0.245], receive data ready.
+D (65302) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), received packet TID: 0x007a, frame: 0x3ffcd15c, 12      
+D (65312) mb_transaction: ENQUEUE msgid=7a, len=12, size=12
+D (65312) mb_port.event: mbs_tcp@0x3ffc93a0, mb take resource, (5 ticks).
+D (65322) mb_port.timer: mbs_tcp@0x3ffc93a0, timer stop, returns 259.
+D (65332) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), acknoledged packet TID: 0x007a, start transaction.      
+D (65342) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), acknoledged packet TID: 0x007a.
+D (65352) mb_object.slave: 0x3ffc93a0:EV_FRAME_RECEIVED
+D (65362) mb_port.tcp.slave: 0x3ffca70c, node #0, socket(#55)(192.168.0.245), read packet, TID: 0x007a, 0x3ffca4e8.
+D (65372) mbs_tcp@0x3ffc93a0:MB_RECV: 03 00 00 00 0a
+D (65372) mb_object.slave: 0x3ffc93a0:EV_EXECUTE
+D (65382) MB_FUNC_HANDLING: Inst: 0x3ffc93a0, get handler: 0x3, 0x400dbda8
+--- 0x400dbda8: mbs_fn_read_holding_reg at C:/Tesis Maqui/esp-modbus/modbus/mb_objects/functions/mbfuncholding.c:144
+D (65382) MB_CONTROLLER_SLAVE: The MB_REG_CHANGE_EVENT = 0x02 is set.
+D (65392) MB_CONTROLLER_SLAVE: Queue send parameter info (type, address, size): 2, 0x3ffb5a1c, 10
+D (65402) mb_object.slave: 0x3ffc93a0: function (0x3), invoke handler 0x400dbda8.
+--- 0x400dbda8: mbs_fn_read_holding_reg at C:/Tesis Maqui/esp-modbus/modbus/mb_objects/functions/mbfuncholding.c:144
+D (65412) mbs_tcp@0x3ffc93a0:MB_SEND: 03 14 00 55 00 55 55 00 55 00 07 8b 01 33 39 30
+D (65412) mbs_tcp@0x3ffc93a0:MB_SEND: 39 30 30 39 00 00
+D (65422) mb_port.tcp.slave: 0x3ffca8a0, node: #0, socket(#55)[192.168.0.245], send packet TID: 0x007a:0x007a, 0x3ffca4e8, len: 29,   
+D (65432) mb_driver: 0x3ffca8a0, fd event get: 0x10:0, |MB_EVENT_SEND_DATA
+D (65442) event: running post loop:0x3ffca8a0:16 with handler 0x400dca64 and context 0x3ffcd0e0 on loop 0x3ffcabf0
+--- 0x400dca64: mbs_on_send_data at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:485
+D (65452) mb_port.tcp.slave: loop:0x3ffca8a0  mbs_on_send_data: fd: 0
+D (65462) SENT: 00 7a 00 00 00 17 01 03 14 00 55 00 55 55 00 55
+D (65462) SENT: 00 07 8b 01 33 39 30 39 30 30 39 00 00
+D (65472) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), sent packet TID: 0x007a, 0x3ffcf5e8.
+D (65482) mb_port.tcp.slave: Remove the message TID:0x007a
+D (65482) mb_object.slave: 0x3ffc93a0:EV_MASTER_FRAME_SENT
+D (65492) mb_object.slave: 0x3ffc93a0, set event EV_ERROR_OK
+D (65492) mb_object.slave: 0x3ffc93a0:EV_ERROR_PROCESS
+D (65502) mb_port.timer: mbs_tcp@0x3ffc93a0, timer stop, returns 259.
+D (65502) mbs_error_cb_request_success: 03 14 00 55 00 55 55 00 55 00 07 8b 01 33 39 30
+D (65512) mbs_error_cb_request_success: 39 30 30 39 00 00
+D (65522) mb_object.slave: 0x3ffc93a0, transaction processing time(us) = 141668
+Temperatura exterior : 19.1C
+Temperatura Hexa :  132
+D (65542) spi_master: Allocate RX buffer for DMA
+D (65612) spi_master: Allocate RX buffer for DMA
+D (65612) max31865: [CS 5] RTD resistance: 107.51312256
+Temperatura interior : 19.28C
+I (65612) SLAVE_TEST: HOLDING READ (64526107 us), ADDR:0, TYPE:2, INST_ADDR:0x3ffb5a1c, SIZE:10
+D (65702) mb_driver: 0x3ffca8a0, fd event get: 0x100:-1, |MB_EVENT_TIMEOUT
+D (65702) event: running post loop:0x3ffca8a0:256 with handler 0x400dcf58 and context 0x3ffccedc on loop 0x3ffcabf0
+--- 0x400dcf58: mbs_on_timeout at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:644
+D (65702) mb_port.tcp.slave: loop:0x3ffca8a0 mbs_on_timeout: fd: 0, count: 1
+D (65712) mb_driver: 0x3ffca8a0, node: 0, sock: 55, IP:192.168.0.245, check connection timeout = 64848, rcv_time: 64401 4000
+D (65962) mb_driver: 0x3ffca8a0, fd event get: 0x100:-1, |MB_EVENT_TIMEOUT
+D (65962) event: running post loop:0x3ffca8a0:256 with handler 0x400dcf58 and context 0x3ffccedc on loop 0x3ffcabf0
+--- 0x400dcf58: mbs_on_timeout at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:644
+D (65962) mb_port.tcp.slave: loop:0x3ffca8a0 mbs_on_timeout: fd: 0, count: 1
+D (65972) mb_driver: 0x3ffca8a0, node: 0, sock: 55, IP:192.168.0.245, check connection timeout = 65108, rcv_time: 64401 4000
+D (66212) mb_driver: 0x3ffca8a0, socket event active: 80000000000000
+D (66212) port.utils: Enqueue data, length=12, TID=0x7b
+D (66212) mb_driver: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), frame received.
+D (66222) mb_driver: 0x3ffca8a0, fd event get: 0x20:0, |MB_EVENT_RECV_DATA
+D (66232) event: running post loop:0x3ffca8a0:32 with handler 0x400dc7e0 and context 0x3ffcce7c on loop 0x3ffcabf0
+--- 0x400dc7e0: mbs_on_recv_data at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:403
+D (66242) mb_port.tcp.slave: loop:0x3ffca8a0  mbs_on_recv_data: fd: 0
+D (66252) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55) [192.168.0.245], receive data ready.
+D (66252) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), received packet TID: 0x007b, frame: 0x3ffcd15c, 12      
+D (66272) mb_transaction: ENQUEUE msgid=7b, len=12, size=12
+D (66272) mb_port.event: mbs_tcp@0x3ffc93a0, mb take resource, (5 ticks).
+D (66282) mb_port.timer: mbs_tcp@0x3ffc93a0, timer stop, returns 259.
+D (66282) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), acknoledged packet TID: 0x007b, start transaction.      
+D (66302) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), acknoledged packet TID: 0x007b.
+D (66312) mb_object.slave: 0x3ffc93a0:EV_FRAME_RECEIVED
+D (66312) mb_port.tcp.slave: 0x3ffca70c, node #0, socket(#55)(192.168.0.245), read packet, TID: 0x007b, 0x3ffca4e8.
+D (66322) mbs_tcp@0x3ffc93a0:MB_RECV: 03 00 00 00 0a
+D (66332) mb_object.slave: 0x3ffc93a0:EV_EXECUTE
+D (66332) MB_FUNC_HANDLING: Inst: 0x3ffc93a0, get handler: 0x3, 0x400dbda8
+--- 0x400dbda8: mbs_fn_read_holding_reg at C:/Tesis Maqui/esp-modbus/modbus/mb_objects/functions/mbfuncholding.c:144
+D (66342) MB_CONTROLLER_SLAVE: The MB_REG_CHANGE_EVENT = 0x02 is set.
+D (66352) MB_CONTROLLER_SLAVE: Queue send parameter info (type, address, size): 2, 0x3ffb5a1c, 10
+D (66352) mb_object.slave: 0x3ffc93a0: function (0x3), invoke handler 0x400dbda8.
+--- 0x400dbda8: mbs_fn_read_holding_reg at C:/Tesis Maqui/esp-modbus/modbus/mb_objects/functions/mbfuncholding.c:144
+D (66362) mbs_tcp@0x3ffc93a0:MB_SEND: 03 14 00 55 00 55 55 00 55 00 07 88 01 32 39 30
+D (66372) mbs_tcp@0x3ffc93a0:MB_SEND: 39 30 30 39 00 00
+D (66382) mb_port.tcp.slave: 0x3ffca8a0, node: #0, socket(#55)[192.168.0.245], send packet TID: 0x007b:0x007b, 0x3ffca4e8, len: 29,   
+D (66392) mb_driver: 0x3ffca8a0, fd event get: 0x10:0, |MB_EVENT_SEND_DATA
+D (66392) event: running post loop:0x3ffca8a0:16 with handler 0x400dca64 and context 0x3ffcd0e0 on loop 0x3ffcabf0
+--- 0x400dca64: mbs_on_send_data at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:485
+D (66402) mb_port.tcp.slave: loop:0x3ffca8a0  mbs_on_send_data: fd: 0
+D (66412) SENT: 00 7b 00 00 00 17 01 03 14 00 55 00 55 55 00 55
+D (66422) SENT: 00 07 88 01 32 39 30 39 30 30 39 00 00
+D (66422) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), sent packet TID: 0x007b, 0x3ffcf5e8.
+D (66432) mb_port.tcp.slave: Remove the message TID:0x007b
+D (66442) mb_object.slave: 0x3ffc93a0:EV_MASTER_FRAME_SENT
+D (66442) mb_object.slave: 0x3ffc93a0, set event EV_ERROR_OK
+D (66452) mb_object.slave: 0x3ffc93a0:EV_ERROR_PROCESS
+D (66452) mb_port.timer: mbs_tcp@0x3ffc93a0, timer stop, returns 259.
+D (66462) mbs_error_cb_request_success: 03 14 00 55 00 55 55 00 55 00 07 88 01 32 39 30
+D (66472) mbs_error_cb_request_success: 39 30 30 39 00 00
+D (66472) mb_object.slave: 0x3ffc93a0, transaction processing time(us) = 139995
+Temperatura exterior : 19.1C
+Temperatura Hexa :  132
+D (66502) spi_master: Allocate RX buffer for DMA
+D (66572) spi_master: Allocate RX buffer for DMA
+D (66572) max31865: [CS 5] RTD resistance: 107.52624512
+Temperatura interior : 19.31C
+I (66572) SLAVE_TEST: HOLDING READ (65482791 us), ADDR:0, TYPE:2, INST_ADDR:0x3ffb5a1c, SIZE:10
+D (66652) mb_driver: 0x3ffca8a0, fd event get: 0x100:-1, |MB_EVENT_TIMEOUT
+D (66652) event: running post loop:0x3ffca8a0:256 with handler 0x400dcf58 and context 0x3ffccedc on loop 0x3ffcabf0
+--- 0x400dcf58: mbs_on_timeout at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:644
+D (66652) mb_port.tcp.slave: loop:0x3ffca8a0 mbs_on_timeout: fd: 0, count: 1
+D (66662) mb_driver: 0x3ffca8a0, node: 0, sock: 55, IP:192.168.0.245, check connection timeout = 65798, rcv_time: 65358 4000
+D (66912) mb_driver: 0x3ffca8a0, fd event get: 0x100:-1, |MB_EVENT_TIMEOUT
+D (66912) event: running post loop:0x3ffca8a0:256 with handler 0x400dcf58 and context 0x3ffccedc on loop 0x3ffcabf0
+--- 0x400dcf58: mbs_on_timeout at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:644
+D (66912) mb_port.tcp.slave: loop:0x3ffca8a0 mbs_on_timeout: fd: 0, count: 1
+D (66922) mb_driver: 0x3ffca8a0, node: 0, sock: 55, IP:192.168.0.245, check connection timeout = 66058, rcv_time: 65358 4000
+D (67172) mb_driver: 0x3ffca8a0, fd event get: 0x100:-1, |MB_EVENT_TIMEOUT
+D (67172) event: running post loop:0x3ffca8a0:256 with handler 0x400dcf58 and context 0x3ffccedc on loop 0x3ffcabf0
+--- 0x400dcf58: mbs_on_timeout at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:644
+D (67172) mb_port.tcp.slave: loop:0x3ffca8a0 mbs_on_timeout: fd: 0, count: 1
+D (67182) mb_driver: 0x3ffca8a0, node: 0, sock: 55, IP:192.168.0.245, check connection timeout = 66317, rcv_time: 65358 4000
+D (67222) mb_driver: 0x3ffca8a0, socket event active: 80000000000000
+D (67222) port.utils: Enqueue data, length=12, TID=0x7c
+D (67222) mb_driver: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), frame received.
+D (67232) mb_driver: 0x3ffca8a0, fd event get: 0x20:0, |MB_EVENT_RECV_DATA
+D (67232) event: running post loop:0x3ffca8a0:32 with handler 0x400dc7e0 and context 0x3ffcce7c on loop 0x3ffcabf0
+--- 0x400dc7e0: mbs_on_recv_data at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:403
+D (67242) mb_port.tcp.slave: loop:0x3ffca8a0  mbs_on_recv_data: fd: 0
+D (67252) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55) [192.168.0.245], receive data ready.
+D (67262) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), received packet TID: 0x007c, frame: 0x3ffcd15c, 12      
+D (67272) mb_transaction: ENQUEUE msgid=7c, len=12, size=12
+D (67272) mb_port.event: mbs_tcp@0x3ffc93a0, mb take resource, (5 ticks).
+D (67282) mb_port.timer: mbs_tcp@0x3ffc93a0, timer stop, returns 259.
+D (67292) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), acknoledged packet TID: 0x007c, start transaction.
+D (67302) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), acknoledged packet TID: 0x007c.
+D (67312) mb_object.slave: 0x3ffc93a0:EV_FRAME_RECEIVED
+D (67322) mb_port.tcp.slave: 0x3ffca70c, node #0, socket(#55)(192.168.0.245), read packet, TID: 0x007c, 0x3ffca4e8.
+D (67332) mbs_tcp@0x3ffc93a0:MB_RECV: 03 00 00 00 0a
+D (67332) mb_object.slave: 0x3ffc93a0:EV_EXECUTE
+D (67342) MB_FUNC_HANDLING: Inst: 0x3ffc93a0, get handler: 0x3, 0x400dbda8
+--- 0x400dbda8: mbs_fn_read_holding_reg at C:/Tesis Maqui/esp-modbus/modbus/mb_objects/functions/mbfuncholding.c:144
+D (67342) MB_CONTROLLER_SLAVE: The MB_REG_CHANGE_EVENT = 0x02 is set.
+D (67352) MB_CONTROLLER_SLAVE: Queue send parameter info (type, address, size): 2, 0x3ffb5a1c, 10
+D (67362) mb_object.slave: 0x3ffc93a0: function (0x3), invoke handler 0x400dbda8.
+--- 0x400dbda8: mbs_fn_read_holding_reg at C:/Tesis Maqui/esp-modbus/modbus/mb_objects/functions/mbfuncholding.c:144
+D (67372) mbs_tcp@0x3ffc93a0:MB_SEND: 03 14 00 55 00 55 55 00 55 00 07 8b 01 32 39 30
+D (67372) mbs_tcp@0x3ffc93a0:MB_SEND: 39 30 30 39 00 00
+D (67382) mb_port.tcp.slave: 0x3ffca8a0, node: #0, socket(#55)[192.168.0.245], send packet TID: 0x007c:0x007c, 0x3ffca4e8, len: 29,   
+D (67392) mb_driver: 0x3ffca8a0, fd event get: 0x10:0, |MB_EVENT_SEND_DATA
+D (67402) event: running post loop:0x3ffca8a0:16 with handler 0x400dca64 and context 0x3ffcd0e0 on loop 0x3ffcabf0
+--- 0x400dca64: mbs_on_send_data at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:485
+D (67412) mb_port.tcp.slave: loop:0x3ffca8a0  mbs_on_send_data: fd: 0
+D (67422) SENT: 00 7c 00 00 00 17 01 03 14 00 55 00 55 55 00 55
+D (67422) SENT: 00 07 8b 01 32 39 30 39 30 30 39 00 00
+D (67432) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), sent packet TID: 0x007c, 0x3ffcf5e8.
+D (67442) mb_port.tcp.slave: Remove the message TID:0x007c
+D (67442) mb_object.slave: 0x3ffc93a0:EV_MASTER_FRAME_SENT
+D (67452) mb_object.slave: 0x3ffc93a0, set event EV_ERROR_OK
+D (67452) mb_object.slave: 0x3ffc93a0:EV_ERROR_PROCESS
+D (67462) mb_port.timer: mbs_tcp@0x3ffc93a0, timer stop, returns 259.
+D (67462) mbs_error_cb_request_success: 03 14 00 55 00 55 55 00 55 00 07 8b 01 32 39 30
+D (67472) mbs_error_cb_request_success: 39 30 30 39 00 00
+D (67482) mb_object.slave: 0x3ffc93a0, transaction processing time(us) = 141776
+Temperatura exterior : 19.2C
+Temperatura Hexa :  133
+D (67502) spi_master: Allocate RX buffer for DMA
+D (67572) spi_master: Allocate RX buffer for DMA
+D (67572) max31865: [CS 5] RTD resistance: 107.52624512
+Temperatura interior : 19.31C
+I (67572) SLAVE_TEST: HOLDING READ (66486214 us), ADDR:0, TYPE:2, INST_ADDR:0x3ffb5a1c, SIZE:10
+D (67662) mb_driver: 0x3ffca8a0, fd event get: 0x100:-1, |MB_EVENT_TIMEOUT
+D (67662) event: running post loop:0x3ffca8a0:256 with handler 0x400dcf58 and context 0x3ffccedc on loop 0x3ffcabf0
+--- 0x400dcf58: mbs_on_timeout at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:644
+D (67662) mb_port.tcp.slave: loop:0x3ffca8a0 mbs_on_timeout: fd: 0, count: 1
+D (67672) mb_driver: 0x3ffca8a0, node: 0, sock: 55, IP:192.168.0.245, check connection timeout = 66808, rcv_time: 66362 4000
+D (67922) mb_driver: 0x3ffca8a0, fd event get: 0x100:-1, |MB_EVENT_TIMEOUT
+D (67922) event: running post loop:0x3ffca8a0:256 with handler 0x400dcf58 and context 0x3ffccedc on loop 0x3ffcabf0
+--- 0x400dcf58: mbs_on_timeout at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:644
+D (67922) mb_port.tcp.slave: loop:0x3ffca8a0 mbs_on_timeout: fd: 0, count: 1
+D (67932) mb_driver: 0x3ffca8a0, node: 0, sock: 55, IP:192.168.0.245, check connection timeout = 67068, rcv_time: 66362 4000
+D (68072) wifi:eb is dhcp or dns sport = 68, dport = 67
+D (68182) mb_driver: 0x3ffca8a0, fd event get: 0x100:-1, |MB_EVENT_TIMEOUT
+D (68182) event: running post loop:0x3ffca8a0:256 with handler 0x400dcf58 and context 0x3ffccedc on loop 0x3ffcabf0
+--- 0x400dcf58: mbs_on_timeout at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:644
+D (68182) mb_port.tcp.slave: loop:0x3ffca8a0 mbs_on_timeout: fd: 0, count: 1
+D (68192) mb_driver: 0x3ffca8a0, node: 0, sock: 55, IP:192.168.0.245, check connection timeout = 67328, rcv_time: 66362 4000
+D (68232) mb_driver: 0x3ffca8a0, socket event active: 80000000000000
+D (68232) port.utils: Enqueue data, length=12, TID=0x7d
+D (68232) mb_driver: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), frame received.
+D (68242) mb_driver: 0x3ffca8a0, fd event get: 0x20:0, |MB_EVENT_RECV_DATA
+D (68242) event: running post loop:0x3ffca8a0:32 with handler 0x400dc7e0 and context 0x3ffcce7c on loop 0x3ffcabf0
+--- 0x400dc7e0: mbs_on_recv_data at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:403
+D (68252) mb_port.tcp.slave: loop:0x3ffca8a0  mbs_on_recv_data: fd: 0
+D (68262) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55) [192.168.0.245], receive data ready.
+D (68272) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), received packet TID: 0x007d, frame: 0x3ffcd15c, 12
+D (68282) mb_transaction: ENQUEUE msgid=7d, len=12, size=12
+D (68282) mb_port.event: mbs_tcp@0x3ffc93a0, mb take resource, (5 ticks).
+D (68292) mb_port.timer: mbs_tcp@0x3ffc93a0, timer stop, returns 259.
+D (68302) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), acknoledged packet TID: 0x007d, start transaction.      
+D (68312) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), acknoledged packet TID: 0x007d.
+D (68322) mb_object.slave: 0x3ffc93a0:EV_FRAME_RECEIVED
+D (68332) mb_port.tcp.slave: 0x3ffca70c, node #0, socket(#55)(192.168.0.245), read packet, TID: 0x007d, 0x3ffca4e8.
+D (68342) mbs_tcp@0x3ffc93a0:MB_RECV: 03 00 00 00 0a
+D (68342) mb_object.slave: 0x3ffc93a0:EV_EXECUTE
+D (68352) MB_FUNC_HANDLING: Inst: 0x3ffc93a0, get handler: 0x3, 0x400dbda8
+--- 0x400dbda8: mbs_fn_read_holding_reg at C:/Tesis Maqui/esp-modbus/modbus/mb_objects/functions/mbfuncholding.c:144
+D (68352) MB_CONTROLLER_SLAVE: The MB_REG_CHANGE_EVENT = 0x02 is set.
+D (68362) MB_CONTROLLER_SLAVE: Queue send parameter info (type, address, size): 2, 0x3ffb5a1c, 10
+D (68372) mb_object.slave: 0x3ffc93a0: function (0x3), invoke handler 0x400dbda8.
+--- 0x400dbda8: mbs_fn_read_holding_reg at C:/Tesis Maqui/esp-modbus/modbus/mb_objects/functions/mbfuncholding.c:144
+D (68382) mbs_tcp@0x3ffc93a0:MB_SEND: 03 14 00 55 00 55 55 00 55 00 07 8b 01 33 39 30
+D (68382) mbs_tcp@0x3ffc93a0:MB_SEND: 39 30 30 39 00 00
+D (68392) mb_port.tcp.slave: 0x3ffca8a0, node: #0, socket(#55)[192.168.0.245], send packet TID: 0x007d:0x007d, 0x3ffca4e8, len: 29,   
+D (68402) mb_driver: 0x3ffca8a0, fd event get: 0x10:0, |MB_EVENT_SEND_DATA
+D (68412) event: running post loop:0x3ffca8a0:16 with handler 0x400dca64 and context 0x3ffcd0e0 on loop 0x3ffcabf0
+--- 0x400dca64: mbs_on_send_data at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:485
+D (68422) mb_port.tcp.slave: loop:0x3ffca8a0  mbs_on_send_data: fd: 0
+D (68432) mb_object.slave: 0x3ffc93a0:EV_MASTER_FRAME_SENT
+D (68432) SENT: 00 7d 00 00 00 17 01 03 14 00 55 00 55 55 00 55
+D (68442) SENT: 00 07 8b 01 33 39 30 39 30 30 39 00 00
+D (68442) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), sent packet TID: 0x007d, 0x3ffce450.
+D (68452) mb_port.tcp.slave: Remove the message TID:0x007d
+D (68462) mb_object.slave: 0x3ffc93a0, set event EV_ERROR_OK
+D (68462) mb_object.slave: 0x3ffc93a0:EV_ERROR_PROCESS
+D (68472) mb_port.timer: mbs_tcp@0x3ffc93a0, timer stop, returns 259.
+D (68472) mbs_error_cb_request_success: 03 14 00 55 00 55 55 00 55 00 07 8b 01 33 39 30
+D (68482) mbs_error_cb_request_success: 39 30 30 39 00 00
+D (68492) mb_object.slave: 0x3ffc93a0, transaction processing time(us) = 141732
+Temperatura exterior : 19.2C
+Temperatura Hexa :  133
+D (68512) spi_master: Allocate RX buffer for DMA
+D (68582) spi_master: Allocate RX buffer for DMA
+D (68582) max31865: [CS 5] RTD resistance: 107.51312256
+Temperatura interior : 19.28C
+I (68582) SLAVE_TEST: HOLDING READ (67496157 us), ADDR:0, TYPE:2, INST_ADDR:0x3ffb5a1c, SIZE:10
+D (68672) mb_driver: 0x3ffca8a0, fd event get: 0x100:-1, |MB_EVENT_TIMEOUT
+D (68672) event: running post loop:0x3ffca8a0:256 with handler 0x400dcf58 and context 0x3ffccedc on loop 0x3ffcabf0
+--- 0x400dcf58: mbs_on_timeout at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:644
+D (68672) mb_port.tcp.slave: loop:0x3ffca8a0 mbs_on_timeout: fd: 0, count: 1
+D (68682) mb_driver: 0x3ffca8a0, node: 0, sock: 55, IP:192.168.0.245, check connection timeout = 67818, rcv_time: 67372 4000
+D (68932) mb_driver: 0x3ffca8a0, fd event get: 0x100:-1, |MB_EVENT_TIMEOUT
+D (68932) event: running post loop:0x3ffca8a0:256 with handler 0x400dcf58 and context 0x3ffccedc on loop 0x3ffcabf0
+--- 0x400dcf58: mbs_on_timeout at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:644
+D (68932) mb_port.tcp.slave: loop:0x3ffca8a0 mbs_on_timeout: fd: 0, count: 1
+D (68942) mb_driver: 0x3ffca8a0, node: 0, sock: 55, IP:192.168.0.245, check connection timeout = 68078, rcv_time: 67372 4000
+D (69192) mb_driver: 0x3ffca8a0, fd event get: 0x100:-1, |MB_EVENT_TIMEOUT
+D (69192) event: running post loop:0x3ffca8a0:256 with handler 0x400dcf58 and context 0x3ffccedc on loop 0x3ffcabf0
+--- 0x400dcf58: mbs_on_timeout at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:644
+D (69192) mb_port.tcp.slave: loop:0x3ffca8a0 mbs_on_timeout: fd: 0, count: 1
+D (69202) mb_driver: 0x3ffca8a0, node: 0, sock: 55, IP:192.168.0.245, check connection timeout = 68337, rcv_time: 67372 4000
+D (69242) mb_driver: 0x3ffca8a0, socket event active: 80000000000000
+D (69242) port.utils: Enqueue data, length=12, TID=0x7e
+D (69242) mb_driver: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), frame received.
+D (69252) mb_driver: 0x3ffca8a0, fd event get: 0x20:0, |MB_EVENT_RECV_DATA
+D (69252) event: running post loop:0x3ffca8a0:32 with handler 0x400dc7e0 and context 0x3ffcce7c on loop 0x3ffcabf0
+--- 0x400dc7e0: mbs_on_recv_data at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:403
+D (69262) mb_port.tcp.slave: loop:0x3ffca8a0  mbs_on_recv_data: fd: 0
+D (69272) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55) [192.168.0.245], receive data ready.
+D (69282) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), received packet TID: 0x007e, frame: 0x3ffcd15c, 12
+D (69292) mb_transaction: ENQUEUE msgid=7e, len=12, size=12
+D (69292) mb_port.event: mbs_tcp@0x3ffc93a0, mb take resource, (5 ticks).
+D (69302) mb_port.timer: mbs_tcp@0x3ffc93a0, timer stop, returns 259.
+D (69312) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), acknoledged packet TID: 0x007e, start transaction.      
+D (69322) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), acknoledged packet TID: 0x007e.
+D (69332) mb_object.slave: 0x3ffc93a0:EV_FRAME_RECEIVED
+D (69342) mb_port.tcp.slave: 0x3ffca70c, node #0, socket(#55)(192.168.0.245), read packet, TID: 0x007e, 0x3ffca4e8.
+D (69352) mbs_tcp@0x3ffc93a0:MB_RECV: 03 00 00 00 0a
+D (69352) mb_object.slave: 0x3ffc93a0:EV_EXECUTE
+D (69362) MB_FUNC_HANDLING: Inst: 0x3ffc93a0, get handler: 0x3, 0x400dbda8
+--- 0x400dbda8: mbs_fn_read_holding_reg at C:/Tesis Maqui/esp-modbus/modbus/mb_objects/functions/mbfuncholding.c:144
+D (69362) MB_CONTROLLER_SLAVE: The MB_REG_CHANGE_EVENT = 0x02 is set.
+D (69372) MB_CONTROLLER_SLAVE: Queue send parameter info (type, address, size): 2, 0x3ffb5a1c, 10
+D (69382) mb_object.slave: 0x3ffc93a0: function (0x3), invoke handler 0x400dbda8.
+--- 0x400dbda8: mbs_fn_read_holding_reg at C:/Tesis Maqui/esp-modbus/modbus/mb_objects/functions/mbfuncholding.c:144
+D (69392) mbs_tcp@0x3ffc93a0:MB_SEND: 03 14 00 55 00 55 55 00 55 00 07 88 01 33 39 30
+D (69392) mbs_tcp@0x3ffc93a0:MB_SEND: 39 30 30 39 00 00
+D (69402) mb_port.tcp.slave: 0x3ffca8a0, node: #0, socket(#55)[192.168.0.245], send packet TID: 0x007e:0x007e, 0x3ffca4e8, len: 29,   
+D (69412) mb_driver: 0x3ffca8a0, fd event get: 0x10:0, |MB_EVENT_SEND_DATA
+D (69422) event: running post loop:0x3ffca8a0:16 with handler 0x400dca64 and context 0x3ffcd0e0 on loop 0x3ffcabf0
+--- 0x400dca64: mbs_on_send_data at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:485
+D (69432) mb_port.tcp.slave: loop:0x3ffca8a0  mbs_on_send_data: fd: 0
+D (69442) SENT: 00 7e 00 00 00 17 01 03 14 00 55 00 55 55 00 55
+D (69442) SENT: 00 07 88 01 33 39 30 39 30 30 39 00 00
+D (69452) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), sent packet TID: 0x007e, 0x3ffbd450.
+D (69462) mb_port.tcp.slave: Remove the message TID:0x007e
+D (69462) mb_object.slave: 0x3ffc93a0:EV_MASTER_FRAME_SENT
+D (69472) mb_object.slave: 0x3ffc93a0, set event EV_ERROR_OK
+D (69472) mb_object.slave: 0x3ffc93a0:EV_ERROR_PROCESS
+D (69482) mb_port.timer: mbs_tcp@0x3ffc93a0, timer stop, returns 259.
+D (69482) mbs_error_cb_request_success: 03 14 00 55 00 55 55 00 55 00 07 88 01 33 39 30
+D (69492) mbs_error_cb_request_success: 39 30 30 39 00 00
+D (69502) mb_object.slave: 0x3ffc93a0, transaction processing time(us) = 141798
+Temperatura exterior : 19.2C
+Temperatura Hexa :  133
+D (69522) spi_master: Allocate RX buffer for DMA
+D (69592) spi_master: Allocate RX buffer for DMA
+D (69592) max31865: [CS 5] RTD resistance: 107.52624512
+Temperatura interior : 19.31C
+I (69592) SLAVE_TEST: HOLDING READ (68506141 us), ADDR:0, TYPE:2, INST_ADDR:0x3ffb5a1c, SIZE:10
+D (69682) mb_driver: 0x3ffca8a0, fd event get: 0x100:-1, |MB_EVENT_TIMEOUT
+D (69682) event: running post loop:0x3ffca8a0:256 with handler 0x400dcf58 and context 0x3ffccedc on loop 0x3ffcabf0
+--- 0x400dcf58: mbs_on_timeout at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:644
+D (69682) mb_port.tcp.slave: loop:0x3ffca8a0 mbs_on_timeout: fd: 0, count: 1
+D (69692) mb_driver: 0x3ffca8a0, node: 0, sock: 55, IP:192.168.0.245, check connection timeout = 68829, rcv_time: 68382 4000
+D (69942) mb_driver: 0x3ffca8a0, fd event get: 0x100:-1, |MB_EVENT_TIMEOUT
+D (69942) event: running post loop:0x3ffca8a0:256 with handler 0x400dcf58 and context 0x3ffccedc on loop 0x3ffcabf0
+--- 0x400dcf58: mbs_on_timeout at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:644
+D (69942) mb_port.tcp.slave: loop:0x3ffca8a0 mbs_on_timeout: fd: 0, count: 1
+D (69952) mb_driver: 0x3ffca8a0, node: 0, sock: 55, IP:192.168.0.245, check connection timeout = 69088, rcv_time: 68382 4000
+D (70202) mb_driver: 0x3ffca8a0, fd event get: 0x100:-1, |MB_EVENT_TIMEOUT
+D (70202) event: running post loop:0x3ffca8a0:256 with handler 0x400dcf58 and context 0x3ffccedc on loop 0x3ffcabf0
+--- 0x400dcf58: mbs_on_timeout at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:644
+D (70202) mb_port.tcp.slave: loop:0x3ffca8a0 mbs_on_timeout: fd: 0, count: 1
+D (70212) mb_driver: 0x3ffca8a0, node: 0, sock: 55, IP:192.168.0.245, check connection timeout = 69347, rcv_time: 68382 4000
+D (70252) mb_driver: 0x3ffca8a0, socket event active: 80000000000000
+D (70252) port.utils: Enqueue data, length=12, TID=0x7f
+D (70252) mb_driver: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), frame received.
+D (70262) mb_driver: 0x3ffca8a0, fd event get: 0x20:0, |MB_EVENT_RECV_DATA
+D (70262) event: running post loop:0x3ffca8a0:32 with handler 0x400dc7e0 and context 0x3ffcce7c on loop 0x3ffcabf0
+--- 0x400dc7e0: mbs_on_recv_data at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:403
+D (70272) mb_port.tcp.slave: loop:0x3ffca8a0  mbs_on_recv_data: fd: 0
+D (70282) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55) [192.168.0.245], receive data ready.
+D (70292) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), received packet TID: 0x007f, frame: 0x3ffcd15c, 12      
+D (70302) mb_transaction: ENQUEUE msgid=7f, len=12, size=12
+D (70302) mb_port.event: mbs_tcp@0x3ffc93a0, mb take resource, (5 ticks).
+D (70312) mb_port.timer: mbs_tcp@0x3ffc93a0, timer stop, returns 259.
+D (70322) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), acknoledged packet TID: 0x007f, start transaction.      
+D (70332) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), acknoledged packet TID: 0x007f.
+D (70342) mb_object.slave: 0x3ffc93a0:EV_FRAME_RECEIVED
+D (70352) mb_port.tcp.slave: 0x3ffca70c, node #0, socket(#55)(192.168.0.245), read packet, TID: 0x007f, 0x3ffca4e8.
+D (70362) mbs_tcp@0x3ffc93a0:MB_RECV: 03 00 00 00 0a
+D (70362) mb_object.slave: 0x3ffc93a0:EV_EXECUTE
+D (70372) MB_FUNC_HANDLING: Inst: 0x3ffc93a0, get handler: 0x3, 0x400dbda8
+--- 0x400dbda8: mbs_fn_read_holding_reg at C:/Tesis Maqui/esp-modbus/modbus/mb_objects/functions/mbfuncholding.c:144
+D (70372) MB_CONTROLLER_SLAVE: The MB_REG_CHANGE_EVENT = 0x02 is set.
+D (70382) MB_CONTROLLER_SLAVE: Queue send parameter info (type, address, size): 2, 0x3ffb5a1c, 10
+D (70392) mb_object.slave: 0x3ffc93a0: function (0x3), invoke handler 0x400dbda8.
+--- 0x400dbda8: mbs_fn_read_holding_reg at C:/Tesis Maqui/esp-modbus/modbus/mb_objects/functions/mbfuncholding.c:144
+D (70402) mbs_tcp@0x3ffc93a0:MB_SEND: 03 14 00 55 00 55 55 00 55 00 07 8b 01 33 39 30
+D (70402) mbs_tcp@0x3ffc93a0:MB_SEND: 39 30 30 39 00 00
+D (70412) mb_port.tcp.slave: 0x3ffca8a0, node: #0, socket(#55)[192.168.0.245], send packet TID: 0x007f:0x007f, 0x3ffca4e8, len: 29,   
+D (70422) mb_driver: 0x3ffca8a0, fd event get: 0x10:0, |MB_EVENT_SEND_DATA
+D (70432) event: running post loop:0x3ffca8a0:16 with handler 0x400dca64 and context 0x3ffcd0e0 on loop 0x3ffcabf0
+--- 0x400dca64: mbs_on_send_data at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:485
+D (70442) mb_port.tcp.slave: loop:0x3ffca8a0  mbs_on_send_data: fd: 0
+D (70452) SENT: 00 7f 00 00 00 17 01 03 14 00 55 00 55 55 00 55
+D (70452) SENT: 00 07 8b 01 33 39 30 39 30 30 39 00 00
+D (70462) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), sent packet TID: 0x007f, 0x3ffbd450.
+D (70472) mb_port.tcp.slave: Remove the message TID:0x007f
+D (70472) mb_object.slave: 0x3ffc93a0:EV_MASTER_FRAME_SENT
+D (70482) mb_object.slave: 0x3ffc93a0, set event EV_ERROR_OK
+D (70482) mb_object.slave: 0x3ffc93a0:EV_ERROR_PROCESS
+D (70492) mb_port.timer: mbs_tcp@0x3ffc93a0, timer stop, returns 259.
+D (70492) mbs_error_cb_request_success: 03 14 00 55 00 55 55 00 55 00 07 8b 01 33 39 30
+D (70502) mbs_error_cb_request_success: 39 30 30 39 00 00
+D (70512) mb_object.slave: 0x3ffc93a0, transaction processing time(us) = 141684
+Temperatura exterior : 19.2C
+Temperatura Hexa :  133
+D (70532) spi_master: Allocate RX buffer for DMA
+D (70602) spi_master: Allocate RX buffer for DMA
+D (70602) max31865: [CS 5] RTD resistance: 107.51312256
+Temperatura interior : 19.28C
+I (70602) SLAVE_TEST: HOLDING READ (69516169 us), ADDR:0, TYPE:2, INST_ADDR:0x3ffb5a1c, SIZE:10
+D (70692) mb_driver: 0x3ffca8a0, fd event get: 0x100:-1, |MB_EVENT_TIMEOUT
+D (70692) event: running post loop:0x3ffca8a0:256 with handler 0x400dcf58 and context 0x3ffccedc on loop 0x3ffcabf0
+--- 0x400dcf58: mbs_on_timeout at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:644
+D (70692) mb_port.tcp.slave: loop:0x3ffca8a0 mbs_on_timeout: fd: 0, count: 1
+D (70702) mb_driver: 0x3ffca8a0, node: 0, sock: 55, IP:192.168.0.245, check connection timeout = 69838, rcv_time: 69392 4000
+D (70952) mb_driver: 0x3ffca8a0, fd event get: 0x100:-1, |MB_EVENT_TIMEOUT
+D (70952) event: running post loop:0x3ffca8a0:256 with handler 0x400dcf58 and context 0x3ffccedc on loop 0x3ffcabf0
+--- 0x400dcf58: mbs_on_timeout at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:644
+D (70952) mb_port.tcp.slave: loop:0x3ffca8a0 mbs_on_timeout: fd: 0, count: 1
+D (70962) mb_driver: 0x3ffca8a0, node: 0, sock: 55, IP:192.168.0.245, check connection timeout = 70097, rcv_time: 69392 4000
+D (71212) mb_driver: 0x3ffca8a0, fd event get: 0x100:-1, |MB_EVENT_TIMEOUT
+D (71212) event: running post loop:0x3ffca8a0:256 with handler 0x400dcf58 and context 0x3ffccedc on loop 0x3ffcabf0
+--- 0x400dcf58: mbs_on_timeout at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:644
+D (71212) mb_port.tcp.slave: loop:0x3ffca8a0 mbs_on_timeout: fd: 0, count: 1
+D (71222) mb_driver: 0x3ffca8a0, node: 0, sock: 55, IP:192.168.0.245, check connection timeout = 70358, rcv_time: 69392 4000
+D (71262) mb_driver: 0x3ffca8a0, socket event active: 80000000000000
+D (71262) port.utils: Enqueue data, length=12, TID=0x80
+D (71262) mb_driver: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), frame received.
+D (71272) mb_driver: 0x3ffca8a0, fd event get: 0x20:0, |MB_EVENT_RECV_DATA
+D (71272) event: running post loop:0x3ffca8a0:32 with handler 0x400dc7e0 and context 0x3ffcce7c on loop 0x3ffcabf0
+--- 0x400dc7e0: mbs_on_recv_data at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:403
+D (71282) mb_port.tcp.slave: loop:0x3ffca8a0  mbs_on_recv_data: fd: 0
+D (71292) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55) [192.168.0.245], receive data ready.
+D (71302) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), received packet TID: 0x0080, frame: 0x3ffcd15c, 12
+D (71312) mb_transaction: ENQUEUE msgid=80, len=12, size=12
+D (71322) mb_port.event: mbs_tcp@0x3ffc93a0, mb take resource, (5 ticks).
+D (71322) mb_port.timer: mbs_tcp@0x3ffc93a0, timer stop, returns 259.
+D (71332) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), acknoledged packet TID: 0x0080, start transaction.      
+D (71342) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), acknoledged packet TID: 0x0080.
+D (71352) mb_object.slave: 0x3ffc93a0:EV_FRAME_RECEIVED
+D (71362) mb_port.tcp.slave: 0x3ffca70c, node #0, socket(#55)(192.168.0.245), read packet, TID: 0x0080, 0x3ffca4e8.
+D (71372) mbs_tcp@0x3ffc93a0:MB_RECV: 03 00 00 00 0a
+D (71372) mb_object.slave: 0x3ffc93a0:EV_EXECUTE
+D (71382) MB_FUNC_HANDLING: Inst: 0x3ffc93a0, get handler: 0x3, 0x400dbda8
+--- 0x400dbda8: mbs_fn_read_holding_reg at C:/Tesis Maqui/esp-modbus/modbus/mb_objects/functions/mbfuncholding.c:144
+D (71382) MB_CONTROLLER_SLAVE: The MB_REG_CHANGE_EVENT = 0x02 is set.
+D (71392) MB_CONTROLLER_SLAVE: Queue send parameter info (type, address, size): 2, 0x3ffb5a1c, 10
+D (71402) mb_object.slave: 0x3ffc93a0: function (0x3), invoke handler 0x400dbda8.
+--- 0x400dbda8: mbs_fn_read_holding_reg at C:/Tesis Maqui/esp-modbus/modbus/mb_objects/functions/mbfuncholding.c:144
+D (71412) mbs_tcp@0x3ffc93a0:MB_SEND: 03 14 00 55 00 55 55 00 55 00 07 88 01 33 39 30
+D (71412) mbs_tcp@0x3ffc93a0:MB_SEND: 39 30 30 39 00 00
+D (71422) mb_port.tcp.slave: 0x3ffca8a0, node: #0, socket(#55)[192.168.0.245], send packet TID: 0x0080:0x0080, 0x3ffca4e8, len: 29,   
+D (71432) mb_driver: 0x3ffca8a0, fd event get: 0x10:0, |MB_EVENT_SEND_DATA
+D (71442) event: running post loop:0x3ffca8a0:16 with handler 0x400dca64 and context 0x3ffcd0e0 on loop 0x3ffcabf0
+--- 0x400dca64: mbs_on_send_data at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:485
+D (71452) mb_port.tcp.slave: loop:0x3ffca8a0  mbs_on_send_data: fd: 0
+D (71462) SENT: 00 80 00 00 00 17 01 03 14 00 55 00 55 55 00 55
+D (71462) SENT: 00 07 88 01 33 39 30 39 30 30 39 00 00
+D (71472) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), sent packet TID: 0x0080, 0x3ffbd450.
+D (71482) mb_port.tcp.slave: Remove the message TID:0x0080
+D (71482) mb_object.slave: 0x3ffc93a0:EV_MASTER_FRAME_SENT
+D (71492) mb_object.slave: 0x3ffc93a0, set event EV_ERROR_OK
+D (71492) mb_object.slave: 0x3ffc93a0:EV_ERROR_PROCESS
+D (71502) mb_port.timer: mbs_tcp@0x3ffc93a0, timer stop, returns 259.
+D (71502) mbs_error_cb_request_success: 03 14 00 55 00 55 55 00 55 00 07 88 01 33 39 30
+D (71512) mbs_error_cb_request_success: 39 30 30 39 00 00
+D (71522) mb_object.slave: 0x3ffc93a0, transaction processing time(us) = 141669
+Temperatura exterior : 19.2C
+Temperatura Hexa :  133
+D (71542) spi_master: Allocate RX buffer for DMA
+D (71612) spi_master: Allocate RX buffer for DMA
+D (71612) max31865: [CS 5] RTD resistance: 107.52624512
+Temperatura interior : 19.31C
+I (71612) SLAVE_TEST: HOLDING READ (70526403 us), ADDR:0, TYPE:2, INST_ADDR:0x3ffb5a1c, SIZE:10
+D (71702) mb_driver: 0x3ffca8a0, fd event get: 0x100:-1, |MB_EVENT_TIMEOUT
+D (71702) event: running post loop:0x3ffca8a0:256 with handler 0x400dcf58 and context 0x3ffccedc on loop 0x3ffcabf0
+--- 0x400dcf58: mbs_on_timeout at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:644
+D (71702) mb_port.tcp.slave: loop:0x3ffca8a0 mbs_on_timeout: fd: 0, count: 1
+D (71712) mb_driver: 0x3ffca8a0, node: 0, sock: 55, IP:192.168.0.245, check connection timeout = 70848, rcv_time: 70402 4000
+D (71962) mb_driver: 0x3ffca8a0, fd event get: 0x100:-1, |MB_EVENT_TIMEOUT
+D (71962) event: running post loop:0x3ffca8a0:256 with handler 0x400dcf58 and context 0x3ffccedc on loop 0x3ffcabf0
+--- 0x400dcf58: mbs_on_timeout at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:644
+D (71962) mb_port.tcp.slave: loop:0x3ffca8a0 mbs_on_timeout: fd: 0, count: 1
+D (71972) mb_driver: 0x3ffca8a0, node: 0, sock: 55, IP:192.168.0.245, check connection timeout = 71107, rcv_time: 70402 4000
+D (72222) mb_driver: 0x3ffca8a0, fd event get: 0x100:-1, |MB_EVENT_TIMEOUT
+D (72222) event: running post loop:0x3ffca8a0:256 with handler 0x400dcf58 and context 0x3ffccedc on loop 0x3ffcabf0
+--- 0x400dcf58: mbs_on_timeout at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:644
+D (72222) mb_port.tcp.slave: loop:0x3ffca8a0 mbs_on_timeout: fd: 0, count: 1
+D (72232) mb_driver: 0x3ffca8a0, node: 0, sock: 55, IP:192.168.0.245, check connection timeout = 71368, rcv_time: 70402 4000
+D (72272) mb_driver: 0x3ffca8a0, socket event active: 80000000000000
+D (72272) port.utils: Enqueue data, length=12, TID=0x81
+D (72272) mb_driver: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), frame received.
+D (72282) mb_driver: 0x3ffca8a0, fd event get: 0x20:0, |MB_EVENT_RECV_DATA
+D (72282) event: running post loop:0x3ffca8a0:32 with handler 0x400dc7e0 and context 0x3ffcce7c on loop 0x3ffcabf0
+--- 0x400dc7e0: mbs_on_recv_data at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:403
+D (72292) mb_port.tcp.slave: loop:0x3ffca8a0  mbs_on_recv_data: fd: 0
+D (72302) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55) [192.168.0.245], receive data ready.
+D (72312) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), received packet TID: 0x0081, frame: 0x3ffcd15c, 12      
+D (72322) mb_transaction: ENQUEUE msgid=81, len=12, size=12
+D (72332) mb_port.event: mbs_tcp@0x3ffc93a0, mb take resource, (5 ticks).
+D (72332) mb_port.timer: mbs_tcp@0x3ffc93a0, timer stop, returns 259.
+D (72342) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), acknoledged packet TID: 0x0081, start transaction.      
+D (72352) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), acknoledged packet TID: 0x0081.
+D (72362) mb_object.slave: 0x3ffc93a0:EV_FRAME_RECEIVED
+D (72372) mb_port.tcp.slave: 0x3ffca70c, node #0, socket(#55)(192.168.0.245), read packet, TID: 0x0081, 0x3ffca4e8.
+D (72382) mbs_tcp@0x3ffc93a0:MB_RECV: 03 00 00 00 0a
+D (72382) mb_object.slave: 0x3ffc93a0:EV_EXECUTE
+D (72392) MB_FUNC_HANDLING: Inst: 0x3ffc93a0, get handler: 0x3, 0x400dbda8
+--- 0x400dbda8: mbs_fn_read_holding_reg at C:/Tesis Maqui/esp-modbus/modbus/mb_objects/functions/mbfuncholding.c:144
+D (72392) MB_CONTROLLER_SLAVE: The MB_REG_CHANGE_EVENT = 0x02 is set.
+D (72402) MB_CONTROLLER_SLAVE: Queue send parameter info (type, address, size): 2, 0x3ffb5a1c, 10
+D (72412) mb_object.slave: 0x3ffc93a0: function (0x3), invoke handler 0x400dbda8.
+--- 0x400dbda8: mbs_fn_read_holding_reg at C:/Tesis Maqui/esp-modbus/modbus/mb_objects/functions/mbfuncholding.c:144
+D (72422) mbs_tcp@0x3ffc93a0:MB_SEND: 03 14 00 55 00 55 55 00 55 00 07 8b 01 33 39 30
+D (72422) mbs_tcp@0x3ffc93a0:MB_SEND: 39 30 30 39 00 00
+D (72432) mb_port.tcp.slave: 0x3ffca8a0, node: #0, socket(#55)[192.168.0.245], send packet TID: 0x0081:0x0081, 0x3ffca4e8, len: 29,   
+D (72442) mb_driver: 0x3ffca8a0, fd event get: 0x10:0, |MB_EVENT_SEND_DATA
+D (72452) event: running post loop:0x3ffca8a0:16 with handler 0x400dca64 and context 0x3ffcd0e0 on loop 0x3ffcabf0
+--- 0x400dca64: mbs_on_send_data at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:485
+D (72462) mb_port.tcp.slave: loop:0x3ffca8a0  mbs_on_send_data: fd: 0
+D (72472) SENT: 00 81 00 00 00 17 01 03 14 00 55 00 55 55 00 55
+D (72472) SENT: 00 07 8b 01 33 39 30 39 30 30 39 00 00
+D (72482) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), sent packet TID: 0x0081, 0x3ffbd450.
+D (72492) mb_port.tcp.slave: Remove the message TID:0x0081
+D (72492) mb_object.slave: 0x3ffc93a0:EV_MASTER_FRAME_SENT
+D (72502) mb_object.slave: 0x3ffc93a0, set event EV_ERROR_OK
+D (72502) mb_object.slave: 0x3ffc93a0:EV_ERROR_PROCESS
+D (72512) mb_port.timer: mbs_tcp@0x3ffc93a0, timer stop, returns 259.
+D (72512) mbs_error_cb_request_success: 03 14 00 55 00 55 55 00 55 00 07 8b 01 33 39 30
+D (72522) mbs_error_cb_request_success: 39 30 30 39 00 00
+D (72532) mb_object.slave: 0x3ffc93a0, transaction processing time(us) = 141696
+Temperatura exterior : 19.2C
+Temperatura Hexa :  133
+D (72552) spi_master: Allocate RX buffer for DMA
+D (72622) spi_master: Allocate RX buffer for DMA
+D (72622) max31865: [CS 5] RTD resistance: 107.52624512
+Temperatura interior : 19.31C
+I (72622) SLAVE_TEST: HOLDING READ (71536552 us), ADDR:0, TYPE:2, INST_ADDR:0x3ffb5a1c, SIZE:10
+D (72712) mb_driver: 0x3ffca8a0, fd event get: 0x100:-1, |MB_EVENT_TIMEOUT
+D (72712) event: running post loop:0x3ffca8a0:256 with handler 0x400dcf58 and context 0x3ffccedc on loop 0x3ffcabf0
+--- 0x400dcf58: mbs_on_timeout at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:644
+D (72712) mb_port.tcp.slave: loop:0x3ffca8a0 mbs_on_timeout: fd: 0, count: 1
+D (72722) mb_driver: 0x3ffca8a0, node: 0, sock: 55, IP:192.168.0.245, check connection timeout = 71858, rcv_time: 71412 4000
+D (72972) mb_driver: 0x3ffca8a0, fd event get: 0x100:-1, |MB_EVENT_TIMEOUT
+D (72972) event: running post loop:0x3ffca8a0:256 with handler 0x400dcf58 and context 0x3ffccedc on loop 0x3ffcabf0
+--- 0x400dcf58: mbs_on_timeout at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:644
+D (72972) mb_port.tcp.slave: loop:0x3ffca8a0 mbs_on_timeout: fd: 0, count: 1
+D (72982) mb_driver: 0x3ffca8a0, node: 0, sock: 55, IP:192.168.0.245, check connection timeout = 72117, rcv_time: 71412 4000
+D (73232) mb_driver: 0x3ffca8a0, fd event get: 0x100:-1, |MB_EVENT_TIMEOUT
+D (73232) event: running post loop:0x3ffca8a0:256 with handler 0x400dcf58 and context 0x3ffccedc on loop 0x3ffcabf0
+--- 0x400dcf58: mbs_on_timeout at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:644
+D (73232) mb_port.tcp.slave: loop:0x3ffca8a0 mbs_on_timeout: fd: 0, count: 1
+D (73242) mb_driver: 0x3ffca8a0, node: 0, sock: 55, IP:192.168.0.245, check connection timeout = 72378, rcv_time: 71412 4000
+Temperatura exterior : 19.2C
+Temperatura Hexa :  133
+D (73442) spi_master: Allocate RX buffer for DMA
+D (73492) mb_driver: 0x3ffca8a0, fd event get: 0x100:-1, |MB_EVENT_TIMEOUT
+D (73492) event: running post loop:0x3ffca8a0:256 with handler 0x400dcf58 and context 0x3ffccedc on loop 0x3ffcabf0
+--- 0x400dcf58: mbs_on_timeout at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:644
+D (73492) mb_port.tcp.slave: loop:0x3ffca8a0 mbs_on_timeout: fd: 0, count: 1
+D (73502) mb_driver: 0x3ffca8a0, node: 0, sock: 55, IP:192.168.0.245, check connection timeout = 72638, rcv_time: 71412 4000
+D (73512) spi_master: Allocate RX buffer for DMA
+D (73522) max31865: [CS 5] RTD resistance: 107.51312256
+Temperatura interior : 19.28C
+D (73752) mb_driver: 0x3ffca8a0, fd event get: 0x100:-1, |MB_EVENT_TIMEOUT
+D (73752) event: running post loop:0x3ffca8a0:256 with handler 0x400dcf58 and context 0x3ffccedc on loop 0x3ffcabf0
+--- 0x400dcf58: mbs_on_timeout at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:644
+D (73752) mb_port.tcp.slave: loop:0x3ffca8a0 mbs_on_timeout: fd: 0, count: 1
+D (73762) mb_driver: 0x3ffca8a0, node: 0, sock: 55, IP:192.168.0.245, check connection timeout = 72898, rcv_time: 71412 4000
+D (73932) mb_driver: 0x3ffca8a0, socket event active: 80000000000000
+D (73932) port.utils: Enqueue data, length=12, TID=0x82
+D (73932) mb_driver: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), frame received.
+D (73942) mb_driver: 0x3ffca8a0, fd event get: 0x20:0, |MB_EVENT_RECV_DATA
+D (73952) event: running post loop:0x3ffca8a0:32 with handler 0x400dc7e0 and context 0x3ffcce7c on loop 0x3ffcabf0
+--- 0x400dc7e0: mbs_on_recv_data at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:403
+D (73962) mb_port.tcp.slave: loop:0x3ffca8a0  mbs_on_recv_data: fd: 0
+D (73962) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55) [192.168.0.245], receive data ready.
+D (73972) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), received packet TID: 0x0082, frame: 0x3ffcd15c, 12      
+D (73982) mb_transaction: ENQUEUE msgid=82, len=12, size=12
+D (73992) mb_port.event: mbs_tcp@0x3ffc93a0, mb take resource, (5 ticks).
+D (74002) mb_port.timer: mbs_tcp@0x3ffc93a0, timer stop, returns 259.
+D (74002) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), acknoledged packet TID: 0x0082, start transaction.      
+D (74012) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), acknoledged packet TID: 0x0082.
+D (74032) mb_object.slave: 0x3ffc93a0:EV_FRAME_RECEIVED
+D (74032) mb_port.tcp.slave: 0x3ffca70c, node #0, socket(#55)(192.168.0.245), read packet, TID: 0x0082, 0x3ffca4e8.
+D (74042) mbs_tcp@0x3ffc93a0:MB_RECV: 03 00 00 00 0a
+D (74042) mb_object.slave: 0x3ffc93a0:EV_EXECUTE
+D (74052) MB_FUNC_HANDLING: Inst: 0x3ffc93a0, get handler: 0x3, 0x400dbda8
+--- 0x400dbda8: mbs_fn_read_holding_reg at C:/Tesis Maqui/esp-modbus/modbus/mb_objects/functions/mbfuncholding.c:144
+D (74062) MB_CONTROLLER_SLAVE: Queue send parameter info (type, address, size): 2, 0x3ffb5a1c, 10
+D (74072) mb_object.slave: 0x3ffc93a0: function (0x3), invoke handler 0x400dbda8.
+--- 0x400dbda8: mbs_fn_read_holding_reg at C:/Tesis Maqui/esp-modbus/modbus/mb_objects/functions/mbfuncholding.c:144
+D (74072) mbs_tcp@0x3ffc93a0:MB_SEND: 03 14 00 55 00 55 55 00 55 00 07 88 01 33 39 30
+D (74082) mbs_tcp@0x3ffc93a0:MB_SEND: 39 30 30 39 00 00
+D (74092) mb_port.tcp.slave: 0x3ffca8a0, node: #0, socket(#55)[192.168.0.245], send packet TID: 0x0082:0x0082, 0x3ffca4e8, len: 29,   
+D (74102) mb_driver: 0x3ffca8a0, fd event get: 0x10:0, |MB_EVENT_SEND_DATA
+D (74112) event: running post loop:0x3ffca8a0:16 with handler 0x400dca64 and context 0x3ffcd0e0 on loop 0x3ffcabf0
+--- 0x400dca64: mbs_on_send_data at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:485
+D (74122) mb_port.tcp.slave: loop:0x3ffca8a0  mbs_on_send_data: fd: 0
+D (74132) SENT: 00 82 00 00 00 17 01 03 14 00 55 00 55 55 00 55
+D (74132) SENT: 00 07 88 01 33 39 30 39 30 30 39 00 00
+D (74132) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), sent packet TID: 0x0082, 0x3ffbd450.
+D (74142) mb_port.tcp.slave: Remove the message TID:0x0082
+D (74152) mb_object.slave: 0x3ffc93a0:EV_MASTER_FRAME_SENT
+D (74152) mb_object.slave: 0x3ffc93a0, set event EV_ERROR_OK
+D (74162) mb_object.slave: 0x3ffc93a0:EV_ERROR_PROCESS
+D (74172) mb_port.timer: mbs_tcp@0x3ffc93a0, timer stop, returns 259.
+D (74172) mbs_error_cb_request_success: 03 14 00 55 00 55 55 00 55 00 07 88 01 33 39 30
+D (74182) mbs_error_cb_request_success: 39 30 30 39 00 00
+D (74192) mb_object.slave: 0x3ffc93a0, transaction processing time(us) = 135281
+I (74192) SLAVE_TEST: HOLDING READ (73194976 us), ADDR:0, TYPE:2, INST_ADDR:0x3ffb5a1c, SIZE:10
+D (74202) esp_netif_lwip: esp_netif_get_ip_info esp_netif:0x3ffc7de0
+D (74372) mb_driver: 0x3ffca8a0, fd event get: 0x100:-1, |MB_EVENT_TIMEOUT
+D (74372) event: running post loop:0x3ffca8a0:256 with handler 0x400dcf58 and context 0x3ffccedc on loop 0x3ffcabf0
+--- 0x400dcf58: mbs_on_timeout at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:644
+D (74372) mb_port.tcp.slave: loop:0x3ffca8a0 mbs_on_timeout: fd: 0, count: 1
+D (74382) mb_driver: 0x3ffca8a0, node: 0, sock: 55, IP:192.168.0.245, check connection timeout = 73518, rcv_time: 73076 4000
+D (74632) mb_driver: 0x3ffca8a0, fd event get: 0x100:-1, |MB_EVENT_TIMEOUT
+D (74632) event: running post loop:0x3ffca8a0:256 with handler 0x400dcf58 and context 0x3ffccedc on loop 0x3ffcabf0
+--- 0x400dcf58: mbs_on_timeout at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:644
+D (74632) mb_port.tcp.slave: loop:0x3ffca8a0 mbs_on_timeout: fd: 0, count: 1
+D (74642) mb_driver: 0x3ffca8a0, node: 0, sock: 55, IP:192.168.0.245, check connection timeout = 73778, rcv_time: 73076 4000
+D (74892) mb_driver: 0x3ffca8a0, fd event get: 0x100:-1, |MB_EVENT_TIMEOUT
+D (74892) event: running post loop:0x3ffca8a0:256 with handler 0x400dcf58 and context 0x3ffccedc on loop 0x3ffcabf0
+--- 0x400dcf58: mbs_on_timeout at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:644
+D (74892) mb_port.tcp.slave: loop:0x3ffca8a0 mbs_on_timeout: fd: 0, count: 1
+D (74902) mb_driver: 0x3ffca8a0, node: 0, sock: 55, IP:192.168.0.245, check connection timeout = 74038, rcv_time: 73076 4000
+D (74942) mb_driver: 0x3ffca8a0, socket event active: 80000000000000
+D (74942) port.utils: Enqueue data, length=12, TID=0x83
+D (74942) mb_driver: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), frame received.
+D (74952) mb_driver: 0x3ffca8a0, fd event get: 0x20:0, |MB_EVENT_RECV_DATA
+D (74952) event: running post loop:0x3ffca8a0:32 with handler 0x400dc7e0 and context 0x3ffcce7c on loop 0x3ffcabf0
+--- 0x400dc7e0: mbs_on_recv_data at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:403
+D (74962) mb_port.tcp.slave: loop:0x3ffca8a0  mbs_on_recv_data: fd: 0
+D (74972) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55) [192.168.0.245], receive data ready.
+D (74982) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), received packet TID: 0x0083, frame: 0x3ffcd15c, 12      
+D (74992) mb_transaction: ENQUEUE msgid=83, len=12, size=12
+D (75002) mb_port.event: mbs_tcp@0x3ffc93a0, mb take resource, (5 ticks).
+D (75002) mb_port.timer: mbs_tcp@0x3ffc93a0, timer stop, returns 259.
+D (75012) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), acknoledged packet TID: 0x0083, start transaction.      
+D (75022) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), acknoledged packet TID: 0x0083.
+D (75032) mb_object.slave: 0x3ffc93a0:EV_FRAME_RECEIVED
+D (75042) mb_port.tcp.slave: 0x3ffca70c, node #0, socket(#55)(192.168.0.245), read packet, TID: 0x0083, 0x3ffca4e8.
+D (75052) mbs_tcp@0x3ffc93a0:MB_RECV: 03 00 00 00 0a
+D (75052) mb_object.slave: 0x3ffc93a0:EV_EXECUTE
+D (75062) MB_FUNC_HANDLING: Inst: 0x3ffc93a0, get handler: 0x3, 0x400dbda8
+--- 0x400dbda8: mbs_fn_read_holding_reg at C:/Tesis Maqui/esp-modbus/modbus/mb_objects/functions/mbfuncholding.c:144
+D (75062) MB_CONTROLLER_SLAVE: The MB_REG_CHANGE_EVENT = 0x02 is set.
+D (75072) MB_CONTROLLER_SLAVE: Queue send parameter info (type, address, size): 2, 0x3ffb5a1c, 10
+D (75082) mb_object.slave: 0x3ffc93a0: function (0x3), invoke handler 0x400dbda8.
+--- 0x400dbda8: mbs_fn_read_holding_reg at C:/Tesis Maqui/esp-modbus/modbus/mb_objects/functions/mbfuncholding.c:144
+D (75092) mbs_tcp@0x3ffc93a0:MB_SEND: 03 14 00 55 00 55 55 00 55 00 07 88 01 33 39 30
+D (75092) mbs_tcp@0x3ffc93a0:MB_SEND: 39 30 30 39 00 00
+D (75102) mb_port.tcp.slave: 0x3ffca8a0, node: #0, socket(#55)[192.168.0.245], send packet TID: 0x0083:0x0083, 0x3ffca4e8, len: 29,   
+D (75112) mb_driver: 0x3ffca8a0, fd event get: 0x10:0, |MB_EVENT_SEND_DATA
+D (75122) event: running post loop:0x3ffca8a0:16 with handler 0x400dca64 and context 0x3ffcd0e0 on loop 0x3ffcabf0
+--- 0x400dca64: mbs_on_send_data at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:485
+D (75132) mb_port.tcp.slave: loop:0x3ffca8a0  mbs_on_send_data: fd: 0
+D (75142) SENT: 00 83 00 00 00 17 01 03 14 00 55 00 55 55 00 55
+D (75142) SENT: 00 07 88 01 33 39 30 39 30 30 39 00 00
+D (75152) mb_port.tcp.slave: 0x3ffca8a0, node #0, socket(#55)(192.168.0.245), sent packet TID: 0x0083, 0x3ffbd450.
+D (75162) mb_port.tcp.slave: Remove the message TID:0x0083
+D (75162) mb_object.slave: 0x3ffc93a0:EV_MASTER_FRAME_SENT
+D (75172) mb_object.slave: 0x3ffc93a0, set event EV_ERROR_OK
+D (75172) mb_object.slave: 0x3ffc93a0:EV_ERROR_PROCESS
+D (75182) mb_port.timer: mbs_tcp@0x3ffc93a0, timer stop, returns 259.
+D (75182) mbs_error_cb_request_success: 03 14 00 55 00 55 55 00 55 00 07 88 01 33 39 30
+D (75192) mbs_error_cb_request_success: 39 30 30 39 00 00
+D (75202) mb_object.slave: 0x3ffc93a0, transaction processing time(us) = 141772
+Temperatura exterior : 19.2C
+Temperatura Hexa :  133
+D (75222) spi_master: Allocate RX buffer for DMA
+D (75292) spi_master: Allocate RX buffer for DMA
+D (75292) max31865: [CS 5] RTD resistance: 107.51312256
+Temperatura interior : 19.28C
+I (75292) SLAVE_TEST: HOLDING READ (74206540 us), ADDR:0, TYPE:2, INST_ADDR:0x3ffb5a1c, SIZE:10
+D (75382) mb_driver: 0x3ffca8a0, fd event get: 0x100:-1, |MB_EVENT_TIMEOUT
+D (75382) event: running post loop:0x3ffca8a0:256 with handler 0x400dcf58 and context 0x3ffccedc on loop 0x3ffcabf0
+--- 0x400dcf58: mbs_on_timeout at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:644
+D (75382) mb_port.tcp.slave: loop:0x3ffca8a0 mbs_on_timeout: fd: 0, count: 1
+D (75392) mb_driver: 0x3ffca8a0, node: 0, sock: 55, IP:192.168.0.245, check connection timeout = 74528, rcv_time: 74082 4000
+D (75642) mb_driver: 0x3ffca8a0, fd event get: 0x100:-1, |MB_EVENT_TIMEOUT
+D (75642) event: running post loop:0x3ffca8a0:256 with handler 0x400dcf58 and context 0x3ffccedc on loop 0x3ffcabf0
+--- 0x400dcf58: mbs_on_timeout at C:/Tesis Maqui/esp-modbus/modbus/mb_ports/tcp/port_tcp_slave.c:644
+D (75642) mb_port.tcp.slave: loop:0x3ffca8a0 mbs_on_timeout: fd: 0, count: 1

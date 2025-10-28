@@ -120,7 +120,7 @@ esp_err_t ds18b20_trigger_temperature_conversion_for_all(onewire_bus_handle_t bu
  *      - ESP_ERR_INVALID_CRC: Get temperature failed due to CRC check error
  *      - ESP_FAIL: Get temperature failed due to other reasons
  */
-esp_err_t ds18b20_get_temperature(ds18b20_device_handle_t ds18b20, float *temperature);
+esp_err_t ds18b20_get_temperature(ds18b20_device_handle_t ds18b20, float *temperature, int *temperature_Int);
 
 /**
  * @brief Get the address of the DS18B20 device

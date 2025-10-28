@@ -46,7 +46,7 @@
 #define RTD_CONNECTION MAX31865_4WIRE
 #endif
 /**************************************** */
-//#include "ThingsBoard.h"
+
 #include "string.h"
 #define GPIO_COIL_0 GPIO_NUM_2 // Ejemplo: usar el GPIO 2
 

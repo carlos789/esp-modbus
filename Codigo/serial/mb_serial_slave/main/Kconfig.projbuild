@@ -183,8 +183,6 @@ menu "Configuracion Max31865"
         default 7 if IDF_TARGET_ESP32P4
         default 5 if IDF_TARGET_ESP32 || IDF_TARGET_ESP32S2 || IDF_TARGET_ESP32S3
         help
-            GPIO number for SPI CS (Chip Select) line.
-
-
+        GPIO number for SPI CS (Chip Select) line.
 
 endmenu

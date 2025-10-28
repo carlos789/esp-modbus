@@ -14,6 +14,7 @@
 #include "nvs_flash.h"
 #include "mdns.h"
 #include "esp_netif.h"
+#include <math.h> // para usar rounf
 
 #if __has_include("esp_mac.h")
 #include "esp_mac.h"
@@ -25,6 +26,58 @@
 #include "modbus_params.h"      // for modbus parameters structures
 
 #define MB_TCP_PORT_NUMBER      (CONFIG_FMB_TCP_PORT_DEFAULT)
+/**************Max31865***************** */
+#include <max31865.h>
+#include "esp_idf_lib_helpers.h"
+max31865_t ConfigMax31865(void);// Declaro la funcion para configurar el Max31865
+#define HOST HELPER_SPI_HOST_DEFAULT
+
+#if CONFIG_EXAMPLE_FILTER_50
+#define FILTER MAX31865_FILTER_50HZ
+#endif
+#if CONFIG_EXAMPLE_FILTER_60
+#define FILTER MAX31865_FILTER_60HZ
+#endif
+#if CONFIG_EXAMPLE_SCALE_ITS90
+#define RTD_STANDARD MAX31865_ITS90
+#endif
+#if CONFIG_EXAMPLE_SCALE_DIN43760
+#define RTD_STANDARD MAX31865_DIN43760
+#endif
+#if CONFIG_EXAMPLE_SCALE_US
+#define RTD_STANDARD MAX31865_US_INDUSTRIAL
+#endif
+
+#if CONFIG_EXAMPLE_CONN_2WIRE
+#define RTD_CONNECTION MAX31865_2WIRE
+#endif
+#if CONFIG_EXAMPLE_CONN_3WIRE
+#define RTD_CONNECTION MAX31865_3WIRE
+#endif
+#if CONFIG_EXAMPLE_CONN_4WIRE
+#define RTD_CONNECTION MAX31865_4WIRE
+#endif
+/**************************************** */
+#include "string.h"
+#define GPIO_COIL_0 GPIO_NUM_2 // Ejemplo: usar el GPIO 2
+// ************DS18B20*********** */
+#include "ds18b20.h"  //Header sensor temperatura 
+#include "onewire_bus.h"
+#include "driver/gpio.h"
+static void sensor_detect(void);// Declaro la funcion para detectar  el DS18B20
+void sensor_read(void);// Declaro la funcion para leer el DS18B20
+// Temp Sensors are on GPIO26
+#define EXAMPLE_ONEWIRE_BUS_GPIO    26
+#define EXAMPLE_ONEWIRE_MAX_DS18B20 2  
+#define LED 2
+#define HIGH 1
+#define digitalWrite gpio_set_level
+static int s_ds18b20_device_num = 0;
+static float s_temperature = 0.0;
+static ds18b20_device_handle_t s_ds18b20s[EXAMPLE_ONEWIRE_MAX_DS18B20];
+static int H_temperature = 0;
+int16_t TMax =0 ;// Regidtro para Modbus del Max31865
+/********************************* */
 
 // Defines below are used to define register start address for each type of Modbus registers
 #define HOLD_OFFSET(field) ((uint16_t)(offsetof(holding_reg_params_t, field) >> 1))
@@ -139,6 +192,8 @@ static void slave_operation_func(void *arg)
 
     ESP_LOGI(TAG, "Modbus slave stack initialized.");
     ESP_LOGI(TAG, "Start modbus test...");
+    sensor_detect();
+    max31865_t dev = ConfigMax31865( ); // Configuracion de SPI y Max
     // The cycle below will be terminated when parameter holding_data0
     // incremented each access cycle reaches the CHAN_DATA_MAX_VAL value.
     for(;holding_reg_params.holding_data0 < MB_CHAN_DATA_MAX_VAL;) {
@@ -156,6 +211,21 @@ static void slave_operation_func(void *arg)
                     (unsigned)reg_info.type,
                     (int)reg_info.address,
                     (unsigned)reg_info.size);
+                    sensor_read();
+		            if (s_temperature < 100.0)//para evitar falsas lecturas
+		                    {
+                            printf("Temperatura exterior : %0.1fC\n", s_temperature);
+		                    printf("Temperatura Hexa : %4X \n", H_temperature);
+                            
+                            //holding_reg_params.holding_u16_ab[0] = 0x1089;
+                            holding_reg_params.holding_u16_ab[1] = H_temperature;
+                            }
+                            float temperature;
+                            esp_err_t res = max31865_measure(&dev, &temperature);
+                            printf("Temperatura interior : %0.2fC\n", temperature);
+                            temperature=temperature * 100.0;//es para no perder las centesimas
+                            TMax= (int16_t)roundf (temperature)  ;
+                            holding_reg_params.holding_u16_ab[0] = TMax; 
             if (reg_info.address == (uint8_t*)&holding_reg_params.holding_data0)
             {
                 (void)mbc_slave_lock(slave_handle);
@@ -417,7 +487,92 @@ static esp_err_t slave_destroy(void)
                                 (int)err);
     return err;
 }
+//*******************Funciones DS18B20********************* */
+static void sensor_detect(void)
+{
+    // install 1-wire bus
+    onewire_bus_handle_t bus = NULL;
+    onewire_bus_config_t bus_config = {
+        .bus_gpio_num = EXAMPLE_ONEWIRE_BUS_GPIO,
+    };
+    onewire_bus_rmt_config_t rmt_config = {
+        .max_rx_bytes = 10, // 1byte ROM command + 8byte ROM number + 1byte device command
+    };
+    ESP_ERROR_CHECK(onewire_new_bus_rmt(&bus_config, &rmt_config, &bus));
 
+    onewire_device_iter_handle_t iter = NULL;
+    onewire_device_t next_onewire_device;
+    esp_err_t search_result = ESP_OK;
+
+    // create 1-wire device iterator, which is used for device search
+    ESP_ERROR_CHECK(onewire_new_device_iter(bus, &iter));
+    ESP_LOGI(TAG, "Device iterator created, start searching...");
+    do {
+        search_result = onewire_device_iter_get_next(iter, &next_onewire_device);
+        if (search_result == ESP_OK) { // found a new device, let's check if we can upgrade it to a DS18B20
+            ds18b20_config_t ds_cfg = {};
+            // check if the device is a DS18B20, if so, return the ds18b20 handle
+            if (ds18b20_new_device_from_enumeration(&next_onewire_device, &ds_cfg, &s_ds18b20s[s_ds18b20_device_num]) == ESP_OK) {
+                ESP_LOGI(TAG, "Found a DS18B20[%d], address: %016llX", s_ds18b20_device_num, next_onewire_device.address);
+                s_ds18b20_device_num++;
+            } else {
+                ESP_LOGI(TAG, "Found an unknown device, address: %016llX", next_onewire_device.address);
+            }
+        }
+    } while (search_result != ESP_ERR_NOT_FOUND);
+    ESP_ERROR_CHECK(onewire_del_device_iter(iter));
+    ESP_LOGI(TAG, "Searching done, %d DS18B20 device(s) found", s_ds18b20_device_num);
+}
+
+void sensor_read(void)
+{
+    for (int i = 0; i < s_ds18b20_device_num; i ++) {
+        ESP_ERROR_CHECK(ds18b20_trigger_temperature_conversion(s_ds18b20s[i]));
+        ESP_ERROR_CHECK(ds18b20_get_temperature(s_ds18b20s[i], &s_temperature, &H_temperature));
+        //ESP_LOGI(TAG, "temperature read from DS18B20[%d]: %.2fC", i, s_temperature);
+        //printf("Temperatura Hexa : %4X \n", H_temperature);
+    }
+}
+
+/************************Funciones Max31865 y SPI*********************** */
+static max31865_config_t config =
+{
+    .v_bias = true,
+    .filter = FILTER,
+    .mode = MAX31865_MODE_SINGLE,
+    .connection = RTD_CONNECTION
+};
+
+max31865_t ConfigMax31865(void)
+{
+    // Configure SPI bus
+    spi_bus_config_t cfg =
+    {
+        .mosi_io_num = CONFIG_EXAMPLE_MOSI_GPIO,
+        .miso_io_num = CONFIG_EXAMPLE_MISO_GPIO,
+        .sclk_io_num = CONFIG_EXAMPLE_SCLK_GPIO,
+        .quadwp_io_num = -1,
+        .quadhd_io_num = -1,
+        .max_transfer_sz = 0,
+        .flags = 0
+    };
+    ESP_ERROR_CHECK(spi_bus_initialize(HOST, &cfg, 1));
+
+    // Init device
+    max31865_t dev =
+    {
+        .standard = RTD_STANDARD,
+        .r_ref = CONFIG_EXAMPLE_RTD_REF,
+        .rtd_nominal = CONFIG_EXAMPLE_RTD_NOMINAL,
+    };
+    ESP_ERROR_CHECK(max31865_init_desc(&dev, HOST, MAX31865_MAX_CLOCK_SPEED_HZ, CONFIG_EXAMPLE_CS_GPIO));
+
+    // Configure device
+    ESP_ERROR_CHECK(max31865_set_config(&dev, &config));
+   
+    return dev;
+}
+/********************************Fin************************************ */
 // An example application of Modbus slave. It is based on esp-modbus stack.
 // See deviceparams.h file for more information about assigned Modbus parameters.
 // These parameters can be accessed from main application and also can be changed

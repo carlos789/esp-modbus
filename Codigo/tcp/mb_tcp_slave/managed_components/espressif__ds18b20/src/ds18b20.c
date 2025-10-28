@@ -157,7 +157,7 @@ esp_err_t ds18b20_trigger_temperature_conversion_for_all(onewire_bus_handle_t bu
     return ESP_OK;
 }
 
-esp_err_t ds18b20_get_temperature(ds18b20_device_handle_t ds18b20, float *ret_temperature)
+esp_err_t ds18b20_get_temperature(ds18b20_device_handle_t ds18b20, float *ret_temperature, int *temperature_Int )
 {
     ESP_RETURN_ON_FALSE(ds18b20 && ret_temperature, ESP_ERR_INVALID_ARG, TAG, "invalid argument");
     // reset bus and check if the ds18b20 is present
@@ -179,7 +179,7 @@ esp_err_t ds18b20_get_temperature(ds18b20_device_handle_t ds18b20, float *ret_te
     int16_t temperature_raw = (((int16_t)scratchpad.temp_msb << 8) | lsb_masked);
     // Convert the raw temperature to a float,
     *ret_temperature = temperature_raw / 16.0f;
-
+    *temperature_Int = temperature_raw ;
     return ESP_OK;
 }
 

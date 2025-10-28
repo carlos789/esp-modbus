@@ -5305,6 +5305,184 @@
     {
         "children": [
             {
+                "children": [
+                    {
+                        "children": [],
+                        "depends_on": "<choice EXAMPLE_SCALE>",
+                        "help": null,
+                        "id": "EXAMPLE_SCALE_ITS90",
+                        "name": "EXAMPLE_SCALE_ITS90",
+                        "range": null,
+                        "title": "ITS-90",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "<choice EXAMPLE_SCALE>",
+                        "help": null,
+                        "id": "EXAMPLE_SCALE_DIN43760",
+                        "name": "EXAMPLE_SCALE_DIN43760",
+                        "range": null,
+                        "title": "DIN43760",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "<choice EXAMPLE_SCALE>",
+                        "help": null,
+                        "id": "EXAMPLE_SCALE_US",
+                        "name": "EXAMPLE_SCALE_US",
+                        "range": null,
+                        "title": "US INDUSTRIAL",
+                        "type": "bool"
+                    }
+                ],
+                "depends_on": null,
+                "help": null,
+                "id": "configuracion-max31865-select-temperature-scale-standard",
+                "name": "EXAMPLE_SCALE",
+                "title": "Select temperature scale standard",
+                "type": "choice"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "RTD nominal resistance at 0 deg. C, Ohms (PT100 - 100 Ohms, PT1000 - 1000 Ohms)",
+                "id": "EXAMPLE_RTD_NOMINAL",
+                "name": "EXAMPLE_RTD_NOMINAL",
+                "range": null,
+                "title": "RTD nominal, Ohms",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": null,
+                "id": "EXAMPLE_RTD_REF",
+                "name": "EXAMPLE_RTD_REF",
+                "range": null,
+                "title": "Reference resistor value, Ohms",
+                "type": "int"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "depends_on": "<choice EXAMPLE_CONN>",
+                        "help": null,
+                        "id": "EXAMPLE_CONN_2WIRE",
+                        "name": "EXAMPLE_CONN_2WIRE",
+                        "range": null,
+                        "title": "2 wires",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "<choice EXAMPLE_CONN>",
+                        "help": null,
+                        "id": "EXAMPLE_CONN_3WIRE",
+                        "name": "EXAMPLE_CONN_3WIRE",
+                        "range": null,
+                        "title": "3 wires",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "<choice EXAMPLE_CONN>",
+                        "help": null,
+                        "id": "EXAMPLE_CONN_4WIRE",
+                        "name": "EXAMPLE_CONN_4WIRE",
+                        "range": null,
+                        "title": "4 wires",
+                        "type": "bool"
+                    }
+                ],
+                "depends_on": null,
+                "help": null,
+                "id": "configuracion-max31865-select-rtd-connection-type",
+                "name": "EXAMPLE_CONN",
+                "title": "Select RTD connection type",
+                "type": "choice"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "depends_on": "<choice EXAMPLE_FILTER>",
+                        "help": null,
+                        "id": "EXAMPLE_FILTER_50",
+                        "name": "EXAMPLE_FILTER_50",
+                        "range": null,
+                        "title": "50 Hz",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "<choice EXAMPLE_FILTER>",
+                        "help": null,
+                        "id": "EXAMPLE_FILTER_60",
+                        "name": "EXAMPLE_FILTER_60",
+                        "range": null,
+                        "title": "60 Hz",
+                        "type": "bool"
+                    }
+                ],
+                "depends_on": null,
+                "help": null,
+                "id": "configuracion-max31865-select-notch-frequency-for-the-noise-rejection-filter",
+                "name": "EXAMPLE_FILTER",
+                "title": "Select notch frequency for the noise rejection filter",
+                "type": "choice"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number for SPI MOSI (Master Output / Slave Input) line.",
+                "id": "EXAMPLE_MOSI_GPIO",
+                "name": "EXAMPLE_MOSI_GPIO",
+                "range": null,
+                "title": "SPI MOSI GPIO Number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number for SPI MISO (Master Input / Slave Output) line.",
+                "id": "EXAMPLE_MISO_GPIO",
+                "name": "EXAMPLE_MISO_GPIO",
+                "range": null,
+                "title": "SPI MISO GPIO Number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number for SPI SCLK (Clock) line.",
+                "id": "EXAMPLE_SCLK_GPIO",
+                "name": "EXAMPLE_SCLK_GPIO",
+                "range": null,
+                "title": "SPI SCLK GPIO Number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number for SPI CS (Chip Select) line.",
+                "id": "EXAMPLE_CS_GPIO",
+                "name": "EXAMPLE_CS_GPIO",
+                "range": null,
+                "title": "SPI CS GPIO Number",
+                "type": "int"
+            }
+        ],
+        "depends_on": null,
+        "id": "configuracion-max31865",
+        "title": "Configuracion Max31865",
+        "type": "menu"
+    },
+    {
+        "children": [
+            {
                 "children": [],
                 "depends_on": null,
                 "help": null,
