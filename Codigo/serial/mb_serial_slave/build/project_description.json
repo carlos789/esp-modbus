@@ -1,7 +1,7 @@
 {
     "version":            "1.2",
     "project_name":       "modbus_serial_slave",
-    "project_version":    "2ea1450-dirty",
+    "project_version":    "dfa7aee-dirty",
     "project_path":       "C:/Tesis Maqui/esp-modbus/Codigo/serial/mb_serial_slave",
     "idf_path":           "C:/Users/carlo_p59mbo7/esp/v5.5.1/esp-idf",
     "build_dir":          "C:/Tesis Maqui/esp-modbus/Codigo/serial/mb_serial_slave/build",

@@ -1,7 +1,7 @@
 {
     "version":            "1.2",
     "project_name":       "modbus_tcp_slave",
-    "project_version":    "13d9ab2-dirty",
+    "project_version":    "dfa7aee-dirty",
     "project_path":       "C:/Tesis Maqui/esp-modbus/Codigo/tcp/mb_tcp_slave",
     "idf_path":           "C:/Users/carlo_p59mbo7/esp/v5.5.1/esp-idf",
     "build_dir":          "C:/Tesis Maqui/esp-modbus/Codigo/tcp/mb_tcp_slave/build",

@@ -436,7 +436,7 @@ void app_main(void)
     ESP_LOGI(TAG, "Modbus slave stack initialized.");
     ESP_LOGI(TAG, "Start modbus test...");
     // Detect the DS18B20 sensor in the bus
-    sensor_detect();
+    sensor_detect();//Funcion para detectar sensor DS18B20
     max31865_t dev = ConfigMax31865( ); // Configuracion de SPI y Max
     // El ciclo siguiente finalizará cuando el parámetro holdingRegParams.dataChan0 
     // // incrementado en cada ciclo de acceso alcance el valor CHAN_DATA_MAX_VAL.
@@ -513,16 +513,16 @@ void app_main(void)
                             printf  ("Acceso a la bobina %u. Nuevo estado: %2X\n", 
                             coil_address, nuevo_estado  );
                              
-                            if ( (nuevo_estado & 0x01))//uso de coil 0 falta coil1
+                           if ( (coil_address == 0)&& (nuevo_estado == 0x01))//uso de coil 0 falta coil1
                             {gpio_set_level(GPIO_COIL_0, 1);}
-                            else if ( !(nuevo_estado & 0x01))
+                             if ( (coil_address == 0)&& (nuevo_estado == 0x00))
                             { gpio_set_level(GPIO_COIL_0, 0);}
 
-                             if ( (nuevo_estado & 0x02))//uso de coil 0 falta coil1
+                             if ( (coil_address == 1)&& (nuevo_estado == 0x02))//uso de coil 0 falta coil1
                             {gpio_set_level(GPIO_COIL_0, 1);}
-                            else if ( !(nuevo_estado & 0x02))
+                            if ((coil_address == 1)&& (nuevo_estado == 0x00))
                             { gpio_set_level(GPIO_COIL_0, 0);}
-                            //coil_reg_params.coils_port0=0;
+                             coil_reg_params.coils_port0=0;
             if (coil_reg_params.coils_port1 == 0xFF) {
                 ESP_LOGI(TAG, "Stop polling.");
                 break;

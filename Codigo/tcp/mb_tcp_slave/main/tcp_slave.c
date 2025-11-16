@@ -173,8 +173,8 @@ static void setup_reg_data(void)
     mb_set_double_badcfehg((val_64_arr *)&holding_reg_params.holding_double_badcfehg[1], (double)MB_TEST_VALUE);
 #endif
 
-    coil_reg_params.coils_port0 = 0x55;
-    coil_reg_params.coils_port1 = 0xAA;
+    coil_reg_params.coils_port0 = 0x00;
+    coil_reg_params.coils_port1 = 0x00;
 
     input_reg_params.input_data0 = 1.12F;
     input_reg_params.input_data1 = 2.34F;
@@ -258,6 +258,22 @@ static void slave_operation_func(void *arg)
                             (unsigned)reg_info.type,
                             (uint32_t)reg_info.address,
                             (unsigned)reg_info.size);
+
+                            uint16_t coil_address = reg_info.mb_offset;
+                            uint8_t nuevo_estado = coil_reg_params.coils_port0;
+                            printf  ("Acceso a la bobina %u. Nuevo estado: %2X\n", 
+                            coil_address, nuevo_estado  );
+                             
+                            if ( (coil_address == 0)&& (nuevo_estado == 0x01))//uso de coil 0 falta coil1
+                            {gpio_set_level(GPIO_COIL_0, 1);}
+                             if ( (coil_address == 0)&& (nuevo_estado == 0x00))
+                            { gpio_set_level(GPIO_COIL_0, 0);}
+
+                             if ( (coil_address == 1)&& (nuevo_estado == 0x02))//uso de coil 0 falta coil1
+                            {gpio_set_level(GPIO_COIL_0, 1);}
+                            if ((coil_address == 1)&& (nuevo_estado == 0x00))
+                            { gpio_set_level(GPIO_COIL_0, 0);}
+                             coil_reg_params.coils_port0=0;
             if (coil_reg_params.coils_port1 == 0xFF) {
                 ESP_LOGI(TAG, "Stop polling.");
                 break;
@@ -580,7 +596,7 @@ max31865_t ConfigMax31865(void)
 void app_main(void)
 {
     ESP_ERROR_CHECK(init_services());
-
+    gpio_set_direction(GPIO_COIL_0, GPIO_MODE_OUTPUT);
     // Set UART log level
     esp_log_level_set(TAG, ESP_LOG_INFO);
 
