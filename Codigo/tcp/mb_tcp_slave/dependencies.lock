@@ -100,5 +100,5 @@ direct_dependencies:
 - mb_example_common
 - protocol_examples_common
 manifest_hash: 2929f0fa0c537f72be2182280f7e405ed8b1d9fde6b5ef57e8e785dccf99a6af
-target: esp32
+target: esp32s3
 version: 2.0.0

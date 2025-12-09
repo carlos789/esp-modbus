@@ -67,7 +67,7 @@ dependencies:
   idf:
     source:
       type: idf
-    version: 5.5.1
+    version: 5.3.1
   mb_example_common:
     dependencies: []
     source:
@@ -82,5 +82,5 @@ direct_dependencies:
 - idf
 - mb_example_common
 manifest_hash: 72553f7c4effbee62744e36efec7f2915cfe29139a17cadc70e9af86b8b0cfa5
-target: esp32
+target: esp32s3
 version: 2.0.0

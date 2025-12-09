@@ -1,4 +1,17 @@
 {
-    "idf.flashType": "UART",
-    "idf.portWin": "COM5"
+  "idf.flashType": "UART",
+  "idf.portWin": "COM3",
+  "idf.openOcdConfigs": [
+    "interface/ftdi/esp32_devkitj_v1.cfg",
+    "target/esp32s3.cfg"
+  ],
+  "idf.customExtraVars": {
+    "IDF_TARGET": "esp32s3"
+  },
+  "clangd.path": "c:\\Python\\Python311\\tools\\esp-clang\\16.0.1-fe4f10a809\\esp-clang\\bin\\clangd.exe",
+  "clangd.arguments": [
+    "--background-index",
+    "--query-driver=c:\\Python\\Python311\\tools\\xtensa-esp-elf\\esp-13.2.0_20240530\\xtensa-esp-elf\\bin\\xtensa-esp32s3-elf-gcc.exe",
+    "--compile-commands-dir=c:\\Tesis Maqui\\esp-modbus\\Codigo\\serial\\mb_serial_slave\\build"
+  ]
 }

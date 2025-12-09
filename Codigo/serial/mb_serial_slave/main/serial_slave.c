@@ -48,14 +48,15 @@
 /**************************************** */
 
 #include "string.h"
-#define GPIO_COIL_0 GPIO_NUM_2 // Ejemplo: usar el GPIO 2
+#define GPIO_COIL_0 GPIO_NUM_2 // Ejemplo: usar el GPIO 2 
+#define GPIO_COIL_1 GPIO_NUM_4 // Ejemplo: usar el GPIO 4
 
 // ************DS18B20*********** */
 #include "ds18b20.h"  //Header sensor temperatura 
 #include "onewire_bus.h"
 #include "driver/gpio.h"
 // Temp Sensors are on GPIO26
-#define EXAMPLE_ONEWIRE_BUS_GPIO    26
+#define EXAMPLE_ONEWIRE_BUS_GPIO    1
 #define EXAMPLE_ONEWIRE_MAX_DS18B20 2  
 #define LED 2
 #define HIGH 1
@@ -275,6 +276,7 @@ static max31865_config_t config =
 max31865_t ConfigMax31865(void  )
 {
     // Configure SPI bus
+    printf("DEBUG: Intentando inicializar bus SPI...\n");
     spi_bus_config_t cfg =
     {
         .mosi_io_num = CONFIG_EXAMPLE_MOSI_GPIO,
@@ -285,7 +287,9 @@ max31865_t ConfigMax31865(void  )
         .max_transfer_sz = 0,
         .flags = 0
     };
-    ESP_ERROR_CHECK(spi_bus_initialize(HOST, &cfg, 1));
+    //ESP_ERROR_CHECK(spi_bus_initialize(HOST, &cfg, 1));
+    ESP_ERROR_CHECK(spi_bus_initialize(HOST, &cfg, SPI_DMA_CH_AUTO));// Cambio para la ESP32 S# para que no entre en PANIC
+    printf("DEBUG: Bus SPI inicializado OK. Intentando inicializar descriptor del sensor...\n");
 
     // Init device
     max31865_t dev =
@@ -295,10 +299,11 @@ max31865_t ConfigMax31865(void  )
         .rtd_nominal = CONFIG_EXAMPLE_RTD_NOMINAL,
     };
     ESP_ERROR_CHECK(max31865_init_desc(&dev, HOST, MAX31865_MAX_CLOCK_SPEED_HZ, CONFIG_EXAMPLE_CS_GPIO));
+        printf("DEBUG: Descriptor del sensor OK. Intentando escribir configuracion...\n");
 
     // Configure device
     ESP_ERROR_CHECK(max31865_set_config(&dev, &config));
-   
+   printf("DEBUG: Configuracion SPI OK. Saliendo de la funcion.\n");
     return dev;
 }
 /********************************Fin************************************ */
@@ -343,7 +348,10 @@ void app_main(void)
     err = mbc_get_handler(mbc_slave_handle, custom_command, &handler);
     MB_RETURN_ON_FALSE((err == ESP_OK && handler == my_custom_fc_handler), ;, TAG,
                         "could not get handler for command %d, returned (0x%x).", (int)custom_command, (int)err);
-    gpio_set_direction(GPIO_COIL_0, GPIO_MODE_OUTPUT);
+    gpio_set_direction(GPIO_COIL_0, GPIO_MODE_OUTPUT);gpio_set_direction(GPIO_COIL_0, GPIO_MODE_OUTPUT);// Configuro salida COIL 0
+    gpio_set_direction(GPIO_COIL_1, GPIO_MODE_OUTPUT);// Configuro salida COIL 1
+    gpio_set_level(GPIO_COIL_0, 1);// Apagp RELE 0
+    gpio_set_level(GPIO_COIL_1, 1);// Apagp RELE 1
     ESP_LOGI(TAG, "GPIO para coil configurado.");
 
     // The code below initializes Modbus register area descriptors
@@ -443,7 +451,7 @@ void app_main(void)
     for(;holding_reg_params.holding_data0 < MB_CHAN_DATA_MAX_VAL;) {
         
         // Verificar eventos de lectura/escritura del maestro Modbus para ciertos eventos
-       
+       vTaskDelay(pdMS_TO_TICKS(10)); // Cede la CPU por 10ms
         (void)mbc_slave_check_event(mbc_slave_handle, MB_READ_WRITE_MASK);
         // Obtener información de parámetros de la cola de parámetros
         ESP_ERROR_CHECK(mbc_slave_get_param_info(mbc_slave_handle, &reg_info, MB_PAR_INFO_GET_TOUT));
@@ -508,21 +516,24 @@ void app_main(void)
                             (uint32_t)reg_info.address,
                             (unsigned)reg_info.size);
 
-                            uint16_t coil_address = reg_info.mb_offset;
+                            uint16_t coil_address = reg_info.mb_offset;// Captura el byte completo que contiene las bobinas
                             uint8_t nuevo_estado = coil_reg_params.coils_port0;
                             printf  ("Acceso a la bobina %u. Nuevo estado: %2X\n", 
                             coil_address, nuevo_estado  );
-                             
-                           if ( (coil_address == 0)&& (nuevo_estado == 0x01))//uso de coil 0 falta coil1
-                            {gpio_set_level(GPIO_COIL_0, 1);}
-                             if ( (coil_address == 0)&& (nuevo_estado == 0x00))
-                            { gpio_set_level(GPIO_COIL_0, 0);}
+                            if (nuevo_estado & (1 << 0)) { 
+                                gpio_set_level(GPIO_COIL_0, 0); // Enciende relé (Nivel ALTO)
+                             } else {
+                                gpio_set_level(GPIO_COIL_0, 1); // Apaga relé (Nivel BAJO)
+                            }
+                            // --- Lógica para la Bobina 1 (GPIO 4) ---
+                            // Usamos operador bit a bit (&) para verificar si el BIT 1 (valor 2) está activo
+                            if (nuevo_estado & (1 << 1)) { 
+                                gpio_set_level(GPIO_COIL_1,0); // Enciende relé (Nivel ALTO)
+                             } else {
+                                gpio_set_level(GPIO_COIL_1, 1); // Apaga relé (Nivel BAJO)
+                             }
 
-                             if ( (coil_address == 1)&& (nuevo_estado == 0x02))//uso de coil 0 falta coil1
-                            {gpio_set_level(GPIO_COIL_0, 1);}
-                            if ((coil_address == 1)&& (nuevo_estado == 0x00))
-                            { gpio_set_level(GPIO_COIL_0, 0);}
-                             coil_reg_params.coils_port0=0;
+
             if (coil_reg_params.coils_port1 == 0xFF) {
                 ESP_LOGI(TAG, "Stop polling.");
                 break;

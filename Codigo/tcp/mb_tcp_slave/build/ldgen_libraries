@@ -36,12 +36,12 @@ C:/Tesis Maqui/esp-modbus/Codigo/tcp/mb_tcp_slave/build/esp-idf/esp_driver_i2s/l
 C:/Tesis Maqui/esp-modbus/Codigo/tcp/mb_tcp_slave/build/esp-idf/sdmmc/libsdmmc.a
 C:/Tesis Maqui/esp-modbus/Codigo/tcp/mb_tcp_slave/build/esp-idf/esp_driver_sdmmc/libesp_driver_sdmmc.a
 C:/Tesis Maqui/esp-modbus/Codigo/tcp/mb_tcp_slave/build/esp-idf/esp_driver_sdspi/libesp_driver_sdspi.a
-C:/Tesis Maqui/esp-modbus/Codigo/tcp/mb_tcp_slave/build/esp-idf/esp_driver_sdio/libesp_driver_sdio.a
-C:/Tesis Maqui/esp-modbus/Codigo/tcp/mb_tcp_slave/build/esp-idf/esp_driver_dac/libesp_driver_dac.a
 C:/Tesis Maqui/esp-modbus/Codigo/tcp/mb_tcp_slave/build/esp-idf/esp_driver_rmt/libesp_driver_rmt.a
+C:/Tesis Maqui/esp-modbus/Codigo/tcp/mb_tcp_slave/build/esp-idf/esp_driver_tsens/libesp_driver_tsens.a
 C:/Tesis Maqui/esp-modbus/Codigo/tcp/mb_tcp_slave/build/esp-idf/esp_driver_sdm/libesp_driver_sdm.a
 C:/Tesis Maqui/esp-modbus/Codigo/tcp/mb_tcp_slave/build/esp-idf/esp_driver_i2c/libesp_driver_i2c.a
 C:/Tesis Maqui/esp-modbus/Codigo/tcp/mb_tcp_slave/build/esp-idf/esp_driver_ledc/libesp_driver_ledc.a
+C:/Tesis Maqui/esp-modbus/Codigo/tcp/mb_tcp_slave/build/esp-idf/esp_driver_usb_serial_jtag/libesp_driver_usb_serial_jtag.a
 C:/Tesis Maqui/esp-modbus/Codigo/tcp/mb_tcp_slave/build/esp-idf/driver/libdriver.a
 C:/Tesis Maqui/esp-modbus/Codigo/tcp/mb_tcp_slave/build/esp-idf/esp_phy/libesp_phy.a
 C:/Tesis Maqui/esp-modbus/Codigo/tcp/mb_tcp_slave/build/esp-idf/esp_vfs_console/libesp_vfs_console.a
@@ -78,6 +78,8 @@ C:/Tesis Maqui/esp-modbus/Codigo/tcp/mb_tcp_slave/build/esp-idf/mqtt/libmqtt.a
 C:/Tesis Maqui/esp-modbus/Codigo/tcp/mb_tcp_slave/build/esp-idf/nvs_sec_provider/libnvs_sec_provider.a
 C:/Tesis Maqui/esp-modbus/Codigo/tcp/mb_tcp_slave/build/esp-idf/perfmon/libperfmon.a
 C:/Tesis Maqui/esp-modbus/Codigo/tcp/mb_tcp_slave/build/esp-idf/spiffs/libspiffs.a
+C:/Tesis Maqui/esp-modbus/Codigo/tcp/mb_tcp_slave/build/esp-idf/touch_element/libtouch_element.a
+C:/Tesis Maqui/esp-modbus/Codigo/tcp/mb_tcp_slave/build/esp-idf/usb/libusb.a
 C:/Tesis Maqui/esp-modbus/Codigo/tcp/mb_tcp_slave/build/esp-idf/wifi_provisioning/libwifi_provisioning.a
 C:/Tesis Maqui/esp-modbus/Codigo/tcp/mb_tcp_slave/build/esp-idf/esp-idf-lib__max31865/libesp-idf-lib__max31865.a
 C:/Tesis Maqui/esp-modbus/Codigo/tcp/mb_tcp_slave/build/esp-idf/espressif__onewire_bus/libespressif__onewire_bus.a
